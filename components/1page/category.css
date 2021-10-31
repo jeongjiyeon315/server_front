@@ -1,0 +1,143 @@
+img {
+  vertical-align: middle;
+}
+
+.cbutton {
+  border-radius: 20px;
+  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+  margin: 10px;
+  padding: 1em;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.cbutton:hover {
+  background-color: #ffa9a9;
+}
+
+.clicked {
+  border-radius: 20px;
+  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+  margin: 10px;
+  padding: 1em;
+  background-color: #ffa9a9;
+}
+/*clicked랑 머가달라서..?*/
+.enclicked {
+  border-radius: 20px;
+  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+  margin: 10px;
+  padding: 1em;
+  background-color: #ffa9a9;
+}
+
+@media screen and (max-width: 600px) {
+  .cbutton {
+    margin: 0.2em;
+    padding: 0.25em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+  .clicked {
+    margin: 0.2em;
+    padding: 0.25em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+  .enclicked {
+    margin: 0.2em;
+    padding: 0.25em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+  .category_box {
+    /*text-align: center;*/
+  }
+}
+.category_p {
+  font-size: 15px !important;
+}
+
+#login_button {
+  background-color: transparent;
+  border: none;
+}
+
+/*////////////////*/
+/*En*/
+
+.enbutton {
+  border-radius: 20px;
+  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+  margin: 10px;
+  padding: 1em;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.enbutton:hover {
+  background-color: #ffa9a9;
+}
+
+.encategory_p {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+  .enbutton {
+    margin: 7px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .enbutton {
+    margin: 4px;
+    padding: 0.8em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+  }
+  .encategory_box {
+    margin-left: 0;
+  }
+  .categortimg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 606px) {
+  .encategory_p {
+    font-size: 10px;
+  }
+  .encategory_box {
+    margin-left: 0;
+    margin-bottom: 1em;
+  }
+  .enbutton {
+    padding: 0.5em;
+  }
+  .categortimg {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .encategory_p {
+    font-size: 8px;
+  }
+  .encategory_box {
+    display: grid !important;
+    text-align: center;
+  }
+  .categortimg {
+    display: none;
+  }
+}
+
+/*@media screen and (max-width: 600px) {*/
+/*.button {*/
+/*    margin: 0.2em;*/
+/*    padding: 0.25em;*/
+/*    padding-top: 0.5em;*/
+/*    padding-bottom: 0.5em;*/
+
+/*}*/
+/*.encategory_box {*/
+/*    text-align: center;*/
+/*}*/

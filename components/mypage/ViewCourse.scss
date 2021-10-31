@@ -1,0 +1,122 @@
+.deletebutton {
+  appearance: none;
+  background-color: #fafbfc;
+  border: 1px solid #cecece;
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292e;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  list-style: none;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.deletebutton:hover {
+  background-color: #ececec;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.bdeletebutton:disabled {
+  background-color: #fafbfc;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959da5;
+  cursor: default;
+}
+
+.deletebutton:active {
+  background-color: #edeff2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.deletebutton:focus {
+  outline: 1px transparent;
+}
+
+.deletebutton:before {
+  display: none;
+}
+
+.deletebutton:-webkit-details-marker {
+  display: none;
+}
+
+.viewcourseul {
+  list-style: none;
+  text-align: center;
+}
+
+.viewcoruseli {
+  display: inline-block;
+}
+
+.viewcoursetitle {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.viewtitle {
+  text-align: center;
+}
+
+.viewbuttonclass {
+  display: inline-block;
+}
+
+.viewouter {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.viewbuttonlist {
+  display: inline-block;
+}
+.viewimg {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 675px) {
+  #coursemap {
+    width: 100% !important;
+    height: 40vh !important;
+  }
+  .viewcoruseli {
+    font-size: 0.8em;
+  }
+  .viewcoursetitle {
+    font-size: 0.9em;
+  }
+  .viewouter {
+    font-size: 0.9em;
+  }
+  .viewtitle {
+    font-size: 0.9em;
+  }
+  .deletename {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .viewbuttonlist {
+    display: block;
+  }
+  .viewtrashbutton {
+    width: 20;
+  }
+}

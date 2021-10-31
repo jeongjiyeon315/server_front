@@ -1,0 +1,391 @@
+.controller{
+  /*padding-top: 8px !important;*/
+  /*padding-bottom: 8px !important;*/
+  /*padding-left: 5px !important;*/
+  /*padding-right: 48px !important;*/
+  padding : 10px;
+  margin: auto;
+  margin-bottom: 1em;
+  width: 70%;
+  /*height: fit-content !important;*/
+  overflow: auto !important;
+  text-align: center;
+  border-style: outset;
+  border-color: #dedede;
+  border-radius: 15px;
+}
+.클래스명모하지 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+@media screen and (max-width: 600px){
+  .클래스명모하지 {
+    font-size: 2vw;
+  }
+}
+.slider-parent{
+  padding : 10px;
+  text-align: center;
+  border: 1px solid #cdd0d2;
+  border-radius: 7px;
+  margin-bottom: 0.7em;
+}
+#threshold{
+  cursor:pointer;
+  width: 50%;
+}
+.buble{
+  /*position:absolute;*/
+}
+
+/* Range CSS */
+$range-track-height:15px;
+$range-track-color:#ffffff;
+
+$range-label-width:50px;
+$range-label-color: #f3f3f3;
+
+$range-handle-size:20px;
+$range-handle-color: #fdbaba;
+$range-handle-color-hover:#f08080;
+
+$shade-0:10px;
+$teal:20px;
+
+.slider-parent {
+  width:100%;
+  margin-bottom:20px;
+}
+
+#threshold {
+
+
+  -webkit-appearance: none;
+  width: calc(300px - (#{$range-label-width + 13px}));
+  height: $range-track-height;
+  border-radius: 5px;
+  background: $range-track-color;
+  outline: none;
+  padding: 0;
+  margin: 0;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
+
+  &:active::-webkit-slider-thumb {
+    background: $range-handle-color-hover;
+  }
+
+  &::-moz-range-thumb {
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border: 0;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
+
+  &:active::-moz-range-thumb {
+    background: $range-handle-color-hover;
+  }
+
+  // Focus state
+  &:focus {
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 3px $shade-0, 0 0 0 6px $teal;
+    }
+  }
+}
+
+
+// Range Label
+#threshold {
+  display: inline-block;
+  //position: relative;
+  //width: $range-label-width;
+  //color: $shade-0;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: $range-label-color;
+  padding: 5px 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  border : 1px solid #ececec;
+
+  &:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid $range-label-color;
+    border-bottom: 7px solid transparent;
+    content: '';
+  }
+}
+
+
+// Firefox Overrides
+::-moz-range-track {
+  background: $range-track-color;
+  border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0;
+}
+
+
+.order {
+  /*display: inline-block;*/
+  border: 1px solid #cdd0d2;
+  border-radius: 8px;
+  /*height: 28px;*/
+  padding: 6px;
+}
+.order_button{
+  padding: 0.3em 0.8em;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+.wrapper {
+  /*margin: 150px auto;*/
+  /*text-align: center;*/
+  /*width: 100%;*/
+  position: relative;
+}
+
+.order_button{
+  /*padding: 15px 100px;*/
+  margin:3px 3px;
+  color: rgb(92, 88, 88);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display:inline-block;
+  border: 1px solid;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.order_button::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /*background-color: rgb(92, 88, 88);*/
+  -webkit-transform: scaleY(.3);
+  transform: scaleY(.3);
+  opacity: 0;
+  transition: all .3s;
+}
+.order_button:hover{
+  color:white;
+
+}
+.order_button:hover::before{
+  opacity: 1;
+  background-color: #f8ad9d;
+  border: 1px solid;
+  border-radius: 10px;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+  transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+}
+
+/*//*/
+.category_button{
+  /*padding: 15px 100px;*/
+  margin:3px 3px;
+  color: rgb(92, 88, 88);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display:inline-block;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.category_button::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /*background-color: rgb(92, 88, 88);*/
+  -webkit-transform: scaleY(.3);
+  transform: scaleY(.3);
+  opacity: 0;
+  transition: all .3s;
+}
+.category_button:hover{
+  color:white;
+
+}
+.category_button:hover::before{
+  opacity: 1;
+  background-color: #f8ad9d;
+  border: 1px solid;
+  border-radius: 10px;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+  transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+}
+
+#selected{
+  color:white;
+  opacity: 1;
+  background-color: #f8ad9d;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.category{
+  /*display: inline-block;*/
+  border: 1px solid #cdd0d2;
+  border-radius: 8px;
+  /*height: 28px;*/
+  padding: 6px;
+  margin-top:0.7em
+}
+.category_button{
+  padding: 0.3em 0.8em;
+  color: rgb(92, 88, 88);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#selected{
+  background: #F08080;
+}
+
+@media screen and (max-width: 600px) {
+  .controller{
+    font-size: 2vw;
+  }
+  .order{
+    padding:3px;
+  }
+  .category{
+    padding:3px;
+  }
+  #threshold{
+    width: 60%;
+  }
+}
+
+
+
+/*장소더보기GO 버튼 ----------------------*/
+.go {
+  height: 30px;
+  /*border-radius: 10px;*/
+  border: none;
+  /*position:relative;*/
+  padding: 0 1em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+
+  left: 45vw;
+  /*color: white;*/
+  margin-top: 1%;
+
+  background-color: white;
+  color: #f08080;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+.go:hover {
+  background: #fff;
+  color: #f08080;
+  border-top: 0;
+  border-bottom: 0;
+}
+.go:before,
+.go:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #f08080;
+  transition: 400ms ease all;
+}
+.go:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.go:hover:before,
+.go:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+@media screen and (max-width: 700px) {
+  /*.gotosecondbtn {*/
+  /*    left: 70vw;*/
+  /*    font-size: 12px;*/
+  /*    margin: 0;*/
+  /*    padding-left: 1em;*/
+  /*    padding-right: 1em;*/
+  /*}*/
+}
+.gobtn_outerdiv{
+  text-align: center;
+  margin-bottom: 1em;
+}
+.gobtn {
+  position: relative;
+  width: 40%;
+  vertical-align: middle;
+  display: inline;
+  text-align: center;
+  margin: auto;
+  padding-top:0.2em;
+  padding-bottom: 0.2em;
+}

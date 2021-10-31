@@ -1,0 +1,200 @@
+.add {
+  width: 1em;
+  height: 1em;
+}
+
+.trash {
+  width: 1em;
+  height: 1em;
+}
+
+button.listbtn {
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  width: 1.2em;
+  padding: 0;
+}
+
+//TodoItemlist
+.makecourselist{
+  //text-align: center;
+}
+.courselist_ul{
+ list-style: none;
+  display: table;
+}
+.courselist{
+  float:left;
+}
+.xmark_button{
+  background: transparent;
+  border: none;
+  cursor:pointer;
+}
+.xmarkimg{
+  margin-bottom: 0.4em;
+}
+
+
+
+.likedlist {
+  width: 25vw;
+  height: 100%;
+  overflow: scroll;
+  cursor: pointer;
+  margin-left: 8vw;
+  margin-bottom: 1.5em;
+  &::-webkit-scrollbar {
+    width: 0.8em;
+    height: 5%;
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
+
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+}
+.Likelistname{
+  margin-bottom: 2vh;
+  border:1px solid rgb(92 88 88);
+  border-radius: 15px;
+  text-align: center;
+  padding:1.5px;
+}
+
+.mypagelist{
+  padding-bottom: 0.5em;
+}
+.listbtn{
+  cursor:pointer;
+}
+.likeplacename{
+  cursor:pointer;
+}
+
+
+
+
+
+//CourseInputSave
+.courseinputsave{
+  text-align: right;
+  margin : 2.5vh 0px;
+}
+
+
+#inputsave_text{
+  font-size: 8px;
+  color: #a7a7a7;
+}
+
+.save_input {
+  display: inline-block;
+  width: 15em;
+  height: 2em;
+  font-size: 12px;
+  padding-left: 2%;
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+  margin-top: 0.5%;
+  border-radius: 40px;
+  box-shadow: 0 3px 10px -1px rgb(0 0 0 / 40%);
+  background: #ffffff;
+  transition: all 0.3s ease;
+  border-color: #dedede;
+
+  &.focus {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.save_button {
+  margin-left: 10px;
+  margin-button: 10px;
+  height: 2em;
+  border: none;
+  background-color: transparent;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 14px -1px rgb(0 0 0 / 60%);
+  width: 4em;
+  cursor: pointer;
+
+}
+
+.save_button img {
+  width: 18px;
+  height: 18px;
+}
+
+//모바일 반응형
+@media (max-width: 675px) {
+  .courseinputsave{
+    margin :1.5vh 0;
+  }
+
+  .save_input {
+    font-size: 10px;
+    width: 17em;
+    margin-top: 0;
+    height: 2.5em;
+  }
+  .save_button {
+    padding: 0 !important;
+    margin-left: 6px;
+    margin-right: 6px;
+    width: 3em;
+    height: 20px;
+  }
+  .save_button img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.coursemap{
+  margin:auto;
+  display: block;
+}
+.coursemap_responsive{
+  display: none;
+}
+
+/*//맵 반응형 설정 (675px)*/
+@media screen and (max-width: 675px) {
+  .coursemap {
+    display: none;
+  }
+  .coursemap_responsive {
+    position: relative;
+    width: 90%;
+    height: 70vh;
+    margin: auto;
+    display: block;
+  }
+  #myplacemapRsp{
+    //display: none;
+  }
+
+  .likedlist{
+    width:100%;
+    margin-left: 0;
+    margin-top:2vh;
+    height: 50%;
+    z-index: -1;
+  }
+}
+
+#myplacemap{
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+}

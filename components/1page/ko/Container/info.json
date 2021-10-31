@@ -1,0 +1,97 @@
+[     
+  {
+    "name": "가평군",
+    "cityLink": "src/city/가평군.png",
+    "id" : 1
+  },  
+  {
+    "name": "고양시",
+    "cityLink": "src/city/고양시.png",
+    "id" : 1
+  },
+  {
+    "name": "수원시",
+    "cityLink": "src/city/수원시.png",
+    "id" : 1
+  },
+  {
+    "name": "강릉시",
+    "cityLink": "src/city/강릉시.png",
+    "id" : 2
+  },
+  {
+    "name": "춘천시",
+    "cityLink": "src/city/춘천시.png",
+    "id" : 2
+  },
+  {
+    "name": "천안시",
+    "cityLink": "src/city/천안시.png",
+    "id" : 3
+  },
+  {
+    "name": "청주시",
+    "cityLink": "src/city/청주시.png",
+    "id" : 4
+  },
+  {
+    "name": "단양군",
+    "cityLink": "src/city/단양군.png",
+    "id" : 4
+  },
+  {
+    "name": "순천시",
+    "cityLink": "src/city/순천시.png",
+    "id" : 5
+  },
+  {
+    "name": "전주시",
+    "cityLink": "src/city/전주시.png",
+    "id" : 6
+  },
+  {
+    "name": "하동군",
+    "cityLink": "src/city/하동군.png",
+    "id" : 7
+  },
+  {
+    "name": "경주시",
+    "cityLink": "src/city/경주시.png",
+    "id" : 8
+  },
+  {
+    "name": "안동시",
+    "cityLink": "src/city/안동시.png",
+    "id" : 8
+  },
+  {
+    "name": "인천",
+    "cityLink": "src/city/인천광역시.png",
+    "id" : 9
+  },
+  {
+    "name": "대전",
+    "cityLink": "src/city/대전광역시.png",
+    "id" : 10
+  },
+  {
+    "name": "대구",
+    "cityLink": "src/city/대구광역시.png",
+    "id" : 11
+  },
+  {
+    "name": "부산",
+    "cityLink": "src/city/부산광역시.png",
+    "id" : 12
+  },
+  {
+    "name": "울산",
+    "cityLink": "src/city/울산광역시.png",
+    "id" : 13
+  },
+  {
+    "name": "광주",
+    "cityLink": "src/city/광주광역시.png",
+    "id" : 14
+  }
+]

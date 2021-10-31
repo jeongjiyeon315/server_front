@@ -1,0 +1,103 @@
+*{
+  color:rgb(92 88 88);
+}
+
+form.inputForm {
+  margin-top: 1.5em;
+}
+.startdisplay {
+  text-align: center;
+}
+.searchstart {
+  display: inline-block;
+  width: 30em;
+  height: 3em;
+  font-size: 12px;
+  padding-left: 2%;
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+  margin-top: 0.5%;
+  border-radius: 40px;
+  box-shadow: 0 6px 8px rgb(0 0 0 / 15%);
+  background: #ffffff;
+  transition: all 0.3s ease;
+  border-color: #dedede;
+
+  &.focus {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.searchbutton {
+  margin-left: 10px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 14px -1px rgb(0 0 0 / 60%);
+  width: 30px;
+  cursor: pointer;
+}
+
+.searchbutton img {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 600px) {
+  .searchstart {
+    font-size: 10px;
+    width: 18em;
+    margin-top: 0;
+    height: 2.5em;
+  }
+  .searchbutton {
+    padding: 0 !important;
+    margin-left: 6px;
+    margin-right: 6px;
+    width: 20px;
+    height: 20px;
+  }
+  .searchbutton img {
+    width: 15px;
+    height: 15px;
+  }
+}
+.map_div{
+  //text-align: center;
+}
+
+.searchplace{
+  margin:auto;
+  display: block;
+}
+.searchplace_responsive{
+  display: none;
+}
+
+
+/*//맵 반응형 설정 (675px)*/
+@media screen and (max-width: 675px) {
+  .searchplace {
+    display: none;
+  }
+  .searchplace_responsive {
+    position: relative;
+    width: 90%;
+    height: 70vh;
+    margin: auto;
+    display: block;
+    margin-bottom: 45vh;
+  }
+}
+
+//출발지설정버튼
+.setstartbtn{
+  background: transparent;
+  margin: 1vh 0px;
+  padding: 0.5vw 1vw;
+  border: 1px solid rgb(92 88 88);
+  border-radius: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Gapyeong",
+    "cityLink": "src/city/가평군.png",
+    "id" : 1
+  },
+  {
+    "name": "Suwon",
+    "cityLink": "src/city/수원시.png",
+    "id" : 1
+  },
+  {
+    "name": "Goyang",
+    "cityLink": "src/city/고양시.png",
+    "id" : 1
+  },
+  {
+    "name": "Gangneung",
+    "cityLink": "src/city/강릉시.png",
+    "id" : 2
+  },
+  {
+    "name": "Chuncheon",
+    "cityLink": "src/city/춘천시.png",
+    "id" : 2
+  },
+  {
+    "name": "Cheonan",
+    "cityLink": "src/city/천안시.png",
+    "id" : 3
+  },
+  {
+    "name": "Danyang",
+    "cityLink": "src/city/단양군.png",
+    "id" : 4
+  },
+  {
+    "name": "Cheongju",
+    "cityLink": "src/city/청주시.png",
+    "id" : 4
+  },
+  {
+    "name": "Suncheon",
+    "cityLink": "src/city/순천시.png",
+    "id" : 5
+  },
+  {
+    "name": "Jeonju",
+    "cityLink": "src/city/전주시.png",
+    "id" : 6
+  },
+  {
+    "name": "Hadong",
+    "cityLink": "src/city/하동군.png",
+    "id" : 7
+  },
+  {
+    "name": "Gyeongju",
+    "cityLink": "src/city/경주시.png",
+    "id" : 8
+  },
+  {
+    "name": "Andong",
+    "cityLink": "src/city/안동시.png",
+    "id" : 8
+  },
+  {
+    "name": "Incheon",
+    "cityLink": "src/city/인천광역시.png",
+    "id" : 9
+  },
+  {
+    "name": "Daegu",
+    "cityLink": "src/city/대구광역시.png",
+    "id" : 11
+  },
+  {
+    "name": "Busan",
+    "cityLink": "src/city/부산광역시.png",
+    "id" : 12
+  },
+  {
+    "name": "Ulsan",
+    "cityLink": "src/city/울산광역시.png",
+    "id" : 13
+  },
+  {
+    "name": "Gwangju",
+    "cityLink": "src/city/광주광역시.png",
+    "id" : 14
+  }
+]

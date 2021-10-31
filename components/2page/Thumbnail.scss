@@ -1,0 +1,252 @@
+.thumbnail_text{
+  margin-top:1em;
+}
+.youtube_each {
+  display: table-cell;
+  text-align: center;
+  padding: 10px;
+}
+.youtube_all {
+  overflow: scroll;
+  transform: matrix3d(10);
+  cursor: pointer;
+  &::-webkit-scrollbar {
+    width: 50%;//값?
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
+
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+}
+.youtube_each {
+  margin: auto;
+}
+.gomap {
+  display: block;
+  margin: auto;
+}
+
+
+
+.underline-hover-btn {
+  background: transparent;
+  border:none !important;
+}
+$ease_out: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+@mixin transition() {
+  transition: 700ms $ease_out;
+
+  &:hover{
+    transition: 400ms $ease_out;
+  }
+}
+
+
+$framePad : 5px;
+.underline-hover-btn{
+  //display: inline-block;
+  display: block;
+  padding: 0.6em 0;
+  margin-left: 25%;
+  border-radius: 0;
+  color: rgb(92, 88, 88) !important;
+  margin-top:1rem;
+  font-weight: bold;
+  //font-size: 0.678rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  cursor:pointer;
+  &:hover{
+    //color: #b2876f;
+    &:before{
+      transform: none;
+      opacity: 1;
+      transition-duration: .4s;
+    }
+
+  }
+
+  &:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -0px;
+    background: #F08080;
+    //background: lighten(#b2876f, 20%);
+    transform: translateY(6px);
+    opacity: 0;
+    transition: 1.8s cubic-bezier(.2,1,.3,1);
+    pointer-events: none;
+  }
+}
+@keyframes bgin{
+  from {
+    transform: skew(-45deg) translate(-150%);
+  }
+  to {
+    transform: skew(-45deg) translate(-50%);
+  }
+}
+@keyframes bgout{
+  from {
+    transform: skew(-45deg) translate(-50%);
+  }
+  to {
+    transform: skew(-45deg) translate(50%);
+  }
+}
+
+
+.nav-btn{
+  display: inline-block;
+  line-height: 35px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  color: #31424e;
+  padding: 0 15px;
+  margin: 2rem 5px 0;
+  transition: all .4s ease-in-out;
+
+  &:before{
+    content: '';
+    display: block;
+    // transition: all .4s;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    border-width: 2px;
+    border-style: solid;
+    transform: scale(.9);
+    border-color: transparent;
+    opacity: 0;
+    animation-name: bubbleOut;
+    animation-duration:400ms;
+  }
+
+  &:hover{
+    &:before{
+      animation-name: bubbleIn;
+      animation-duration:400ms;
+
+
+
+      //leave
+
+    }
+  }
+}
+@keyframes bubbleIn{
+  from {
+    transform: scale(.9);
+    border-color: transparent;
+    opacity: 0;
+  }
+  to {
+    border-color: #abbabf;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes bubbleOut{
+  from {
+    border-color: #abbabf;
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    border-color: transparent;
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+
+
+/*.youtubebutton,*/
+/*.youtubebutton::after {*/
+/*    -webkit-transition: all 0.5s;*/
+/*    -moz-transition: all 0.5s;*/
+/*    -o-transition: all 0.5s;*/
+/*    transition: all 0.5s;*/
+/*}*/
+/*.youtubebutton{*/
+/*    background: transparent;*/
+/*    border: 0.5px solid;*/
+
+/*    border-radius: 5px;*/
+/*    color: #000000;*/
+/*    display: block;*/
+/*    !*font-weight: bold;*!*/
+/*    margin: auto;*/
+/*    position: relative;*/
+/*    text-transform: uppercase;*/
+/*    padding: 6px;*/
+/*    margin-top: 1em;*/
+/*    cursor:pointer;*/
+/*}*/
+/*.youtubebutton::before,*/
+/*.youtubebutton::after {*/
+/*    background: #f4978e;*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    z-index: -1;*/
+/*}*/
+
+/*.youtubebutton::after {*/
+/*    height: 100%;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    width: 0;*/
+/*}*/
+/*.youtubebutton:hover:after {*/
+/*    width: 100%;*/
+/*}*/
+
+.youtubemapevent{
+  margin: auto;
+  display: block;
+  padding-bottom: 10px;
+}
+.youtubemapevent_response{
+  display: none;
+}
+@media screen and (max-width: 675px) {
+  .youtubemapevent{
+    display: none;
+  }
+  .youtubemapevent_response{
+    position: relative;
+    width: 90%;
+    height: 70vh;
+    margin: auto;
+    display: block;
+    padding-bottom: 10px;
+
+  }
+}
+#clickedvlog{
+  border-bottom: 2px solid #F08080;
+  padding-bottom: 3px;
+}

@@ -1,0 +1,37 @@
+.place_info {
+  display: inline-block;
+}
+
+/*.input_radio label:hover {*/
+/*    background-color:#F08080;*/
+/*    color:white*/
+/*}*/
+
+.info-title {
+  display: block;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #f08080;
+  text-align: center;
+  height: 24px;
+  line-height: 22px;
+  border-radius: 4px;
+  padding: 0px 10px;
+}
+
+#entop5 {
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+}
+/*.top5map_div{*/
+/*  position:relative;*/
+/*}*/
+.liketop5_span {
+  position: absolute;
+  padding-left: 20;
+}
+.likevlog_span {
+  position: absolute;
+  padding-left: 20;
+}

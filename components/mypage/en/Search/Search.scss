@@ -1,0 +1,90 @@
+.myplacestation p {
+  font-size: 15px;
+  line-height: 100%;
+  margin-top: 0em;
+  margin-bottom: 0.4em;
+}
+
+.myplaceSearchinput input {
+  width: 18em;
+  height: 2.5em;
+  font-size: 15px;
+  padding-left: 2%;
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+  margin-top: 2%;
+  border-radius: 40px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  transition: all 0.3s ease;
+  border-color: #dedede;
+
+  &.focus {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.myplaceSearchinput input::click .myplacestation {
+  padding-bottom: 0.6em;
+}
+
+.myplacecontainer {
+  width: 14em;
+  height: 5.5em;
+  overflow: scroll;
+  cursor: pointer;
+  margin-top: 1em;
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+  &::-webkit-scrollbar {
+    width: 0.8em;
+    height: 5%;
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
+
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+}
+
+.myplaceSearchinput {
+  flex-direction: column;
+  margin-bottom: 1%;
+  margin-top: 2%;
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .myplaceSearchinput {
+    margin-left: 1em;
+  }
+  .myplaceSearchinput input {
+    width: 15em;
+    margin-left: 0;
+    margin-top: 1.5em;
+  }
+  .myplacecontainer {
+    width: 14em;
+    margin-left: 0;
+  }
+}
+
+
+//여어어어기부터내ㅏ---------------------------------------------------------------
+
+
+
+@media screen and (max-width: 675px) {
+  #myMap{
+    width:100% !important;
+    height:40vh !important;
+  }
+
+}
