@@ -53,8 +53,7 @@ const EnTourapilist: FC<Props> = (props: Props) => {
   useEffect(() => {
     axios
       .get(
-        process.env.REACT_APP_DB_HOST +
-          `http://api.visitkorea.or.kr/openapi/service/rest/EngService/locationBasedList?serviceKey=${api}&numOfRows=${number}&pageNo=${pnumber}&MobileOS=ETC&MobileApp=AppTest&listYN=Y&arrange=${props.arrange}&contentTypeId=${props.type}&mapX=${props.mapx}&mapY=${props.mapy}&radius=${props.distance}&_type=json`,
+        `http://api.visitkorea.or.kr/openapi/service/rest/EngService/locationBasedList?serviceKey=${api}&numOfRows=${number}&pageNo=${pnumber}&MobileOS=ETC&MobileApp=AppTest&listYN=Y&arrange=${props.arrange}&contentTypeId=${props.type}&mapX=${props.mapx}&mapY=${props.mapy}&radius=${props.distance}&_type=json`,
       )
       .then((response) => {
         if (response.data.response.body.items === '') {
