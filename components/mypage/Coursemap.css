@@ -1,27 +1,24 @@
-.makecourse_div{
-    margin-bottom: 10px;
+.makecourse_div {
+  margin-bottom: 10px;
+  padding-top: 2.5em;
 }
 
-.setstartbtn_div{
-    text-align: center;
+.setstartbtn_div {
+  text-align: center;
 }
-
 
 /*Liskt.tsx*/
-.coursetitle{
-    font-size: 0.7em;
-    color: #9e9e9e;
+.coursetitle {
+  font-size: 0.7em;
+  color: #9e9e9e;
 }
-
-
 
 /*//맵 반응형 설정 (675px)*/
 @media screen and (max-width: 675px) {
-
-    .makecourse_div{
-        font-size:0.4em;
-    }
-    .coursetitle {
-        font-size: 0.4em;
-    }
+  .makecourse_div {
+    font-size: 0.4em;
+  }
+  .coursetitle {
+    font-size: 0.4em;
+  }
 }
