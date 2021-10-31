@@ -37,8 +37,8 @@ const Coursemaprsp: FC<Props> = (props: Props) => {
             .delete(process.env.REACT_APP_DB_HOST + `/api/course/delete/${props.courseid}`)
             .then((response) => {})
             .catch((error) => {});
+          location.reload();
         }
-        location.reload();
       })
       .catch((error) => {});
   }, [props.courseid]);

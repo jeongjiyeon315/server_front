@@ -37,8 +37,8 @@ const EnCoursemaprsp: FC<Props> = (props: Props) => {
             .delete(process.env.REACT_APP_DB_HOST + `/api/en/course/delete/${props.courseid}`)
             .then((response) => {})
             .catch((error) => {});
+          location.reload();
         }
-        location.reload();
       })
       .catch((error) => {});
   }, [props.courseid]);
