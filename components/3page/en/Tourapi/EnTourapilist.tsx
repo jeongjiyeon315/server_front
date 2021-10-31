@@ -42,7 +42,7 @@ const EnTourapilist: FC<Props> = (props: Props) => {
   const [like5, setLike5] = useState(0);
 
   var ggcategory = '관광명소';
-  if (props.type === 39) {
+  if (props.type === 82) {
     ggcategory = '음식점';
   } else {
     ggcategory = '관광명소';

@@ -41,10 +41,15 @@ const LikeTourapi: FC<Props> = (props: Props) => {
     ggcategory = '관광명소';
   }
   var len = 0;
+  const headers = {
+    Origin: 'http://uspot.site',
+  };
+
   useEffect(() => {
     axios
       .get(
         `http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?serviceKey=${api}&numOfRows=${number}&pageNo=${pnumber}&MobileOS=ETC&MobileApp=AppTest&arrange=${props.arrange}&contentTypeId=${props.type}&mapX=${props.mapx}&mapY=${props.mapy}&radius=${props.distance}&listYN=Y&_type=json`,
+        { headers },
       )
       .then((response) => {
         if (response.data.response.body.items === '') {
@@ -98,7 +103,7 @@ const LikeTourapi: FC<Props> = (props: Props) => {
     } else {
       axios
         .post(
-          process.env.REACT_APP_DB_HOST + `/api/myplace/addfromapi/${memberid}`,
+          `/api/myplace/addfromapi/${memberid}`,
           JSON.stringify({ name, category, location_x, location_y, address, placeId }),
           { headers },
         )
@@ -111,7 +116,7 @@ const LikeTourapi: FC<Props> = (props: Props) => {
 
   function func_delete(e: number) {
     axios
-      .delete(process.env.REACT_APP_DB_HOST + `/api/myplace/deletebymyplace/${memberid}/${placeid[e]}`)
+      .delete(`/api/myplace/deletebymyplace/${memberid}/${placeid[e]}`)
       .then(() => {})
       .catch((error) => {});
   }
