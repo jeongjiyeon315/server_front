@@ -98,7 +98,7 @@ const Slide: FC<Props> = (props: Props) => {
       })
       .catch((error) => {});
     axios
-      .get(process.env.REACT_APP_DB_HOST + `/api/station/${dic[props.selectedcity]}`)
+      .get(`/api/station/${dic[props.selectedcity]}`)
       .then((response) => {
         setStation(response.data.data);
       })
@@ -111,7 +111,7 @@ const Slide: FC<Props> = (props: Props) => {
   return (
     <>
       <div className="title">
-        <h2 style={{ marginBottom: '0px' }}>
+        <h2 style={{ marginBottom: '0px', marginTop: '0.8em' }}>
           {props.selectedcity}의 {props.selectedcategory} TOP5{' '}
         </h2>
       </div>
@@ -269,17 +269,17 @@ const Slide: FC<Props> = (props: Props) => {
           stationlist={station}
         />
       </div>
-      <div className="top5mapevent_responsive" style={{ position: 'relative', width: '100%' }}>
-        <Top5MapeventResponsive
-          top5data={top5data}
-          imageSrc={imageSrc}
-          top5name={top5name}
-          top5placeid={top5placeid}
-          placeurl={placeurl}
-          history={props.history}
-          stationlist={station}
-        />
-      </div>
+      {/*<div className="top5mapevent_responsive" style={{ position: 'relative', width: '100%' }}>*/}
+      {/*  <Top5MapeventResponsive*/}
+      {/*    top5data={top5data}*/}
+      {/*    imageSrc={imageSrc}*/}
+      {/*    top5name={top5name}*/}
+      {/*    top5placeid={top5placeid}*/}
+      {/*    placeurl={placeurl}*/}
+      {/*    history={props.history}*/}
+      {/*    stationlist={station}*/}
+      {/*  />*/}
+      {/*</div>*/}
 
       <Thumbnail
         selectedcity={props.selectedcity}

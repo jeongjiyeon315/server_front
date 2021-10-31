@@ -35,3 +35,9 @@
   position: absolute;
   padding-left: 20;
 }
+
+/*@media screen and (max-width: 800px) {*/
+/*  .liketop5_span{*/
+/*    display: contents !important;*/
+/*  }*/
+/*}*/

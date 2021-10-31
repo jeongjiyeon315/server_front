@@ -83,8 +83,8 @@ button#btn_now {
 .carousel-card-mask {
   text-align: center;
 }
-.carousel_span{
-  word-wrap:break-word;
+.carousel_span {
+  word-wrap: break-word;
 }
 
 .leftback {
@@ -305,24 +305,36 @@ $black: #f08080;
   }
 }
 
-.top5mapevent {
-  margin: auto;
-  display: block;
-}
-.top5mapevent_responsive {
-  display: none;
-}
-@media screen and (max-width: 675px) {
-  .top5mapevent {
-    display: none;
+//.top5mapevent {
+//  margin: auto;
+//  display: block;
+//}
+//.top5mapevent_responsive {
+//  display: none;
+//}
+@media screen and (max-width: 820px) {
+  .liketop5_span {
+    display: contents !important;
   }
-  .top5mapevent_responsive {
-    position: relative;
-    width: 90%;
-    height: 70vh;
-    margin: auto;
-    display: block;
+  #entop5 {
+    width: 100% !important;
   }
+  .likevlog_span {
+    display: contents !important;
+  }
+  #youtubemap {
+    width: 100% !important;
+  }
+  //.top5mapevent {
+  //  display: none;
+  //}
+  //.top5mapevent_responsive {
+  //  position: relative;
+  //  width: 90%;
+  //  height: 70vh;
+  //  margin: auto;
+  //  display: block;
+  //}
 
   .carousel_card_item {
     display: inline-block;

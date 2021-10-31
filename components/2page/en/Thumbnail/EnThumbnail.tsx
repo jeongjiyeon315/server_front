@@ -103,9 +103,9 @@ const EnThumbnail: FC<Props> = ({ children, selectedcity, selectedcategory, btn_
           <div className="youtubemapevent" style={{ position: 'relative', width: '100%' }}>
             <EnYoutubeMapevent videoid={id} history={history} vlogplaceid={vlogplaceid} />
           </div>
-          <div className="youtubemapevent_response" style={{ position: 'relative', width: '100%' }}>
+          {/* <div className="youtubemapevent_response" style={{ position: 'relative', width: '100%' }}>
             <EnYoutubeMapRsp videoid={id} history={history} vlogplaceid={vlogplaceid} />
-          </div>
+          </div> */}
         </>
       )}
     </>

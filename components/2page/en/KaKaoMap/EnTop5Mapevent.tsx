@@ -117,7 +117,7 @@ const EnTop5Mapevent: FC<Props> = (props: Props) => {
       <div style={{ position: 'relative' }}>
         <div id="star"></div>
         <div id="entop5" style={{ width: '50%', height: '50%', display: 'inline-block' }}></div>
-        <span style={{ position: 'absolute', width: '50%' }}>
+        <span className="liketop5_span" style={{ position: 'absolute', width: '50%' }}>
           <EnLiketop5
             top5name={props.top5name}
             top5placeid={props.top5placeid}

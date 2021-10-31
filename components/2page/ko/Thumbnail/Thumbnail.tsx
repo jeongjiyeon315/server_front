@@ -99,9 +99,9 @@ const Thumbnail: FC<Props> = ({ children, selectedcity, selectedcategory, btn_pi
           <div className="youtubemapevent" style={{ position: 'relative', width: '100%' }}>
             <YoutubeMapevent videoid={id} history={history} />
           </div>
-          <div className="youtubemapevent_response" style={{ position: 'relative', width: '100%' }}>
-            <YoutubeMapRsp videoid={id} history={history} />
-          </div>
+          {/*<div className="youtubemapevent_response" style={{ position: 'relative', width: '100%' }}>*/}
+          {/*  <YoutubeMapRsp videoid={id} history={history} />*/}
+          {/*</div>*/}
         </>
       )}
     </>

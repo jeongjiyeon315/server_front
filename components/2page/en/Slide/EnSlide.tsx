@@ -136,7 +136,7 @@ const EnSlide: FC<Props> = (props: Props) => {
   return (
     <>
       <div className="title">
-        <h2 style={{ marginBottom: '0px' }}>
+        <h2 style={{ marginBottom: '0px', marginTop: '0.8em' }}>
           TOP5 of {category_kortoeng[props.selectedcategory]} in {city_engtokor[props.selectedcity]}{' '}
         </h2>
       </div>
@@ -294,7 +294,7 @@ const EnSlide: FC<Props> = (props: Props) => {
           stationlist={station}
         />
       </div>
-      <div className="top5mapevent_responsive" style={{ position: 'relative', width: '100%' }}>
+      {/* <div className="top5mapevent_responsive" style={{ position: 'relative', width: '100%' }}>
         <EnTop5MapRsp
           top5data={top5data}
           imageSrc={imageSrc}
@@ -304,7 +304,7 @@ const EnSlide: FC<Props> = (props: Props) => {
           history={props.history}
           stationlist={station}
         />
-      </div>
+      </div> */}
 
       <EnThumbnail
         selectedcity={props.selectedcity}
