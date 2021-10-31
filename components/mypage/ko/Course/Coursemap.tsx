@@ -47,7 +47,7 @@ export default function Coursemap() {
         imageOption = { offset: new kakao.maps.Point(27, 69) };
       if (el.category === '관광명소') {
         var id = 1;
-      } else if (el.category === '식당') {
+      } else if (el.category === '음식점') {
         var id = 2;
       } else if (el.category === '카페') {
         var id = 3;

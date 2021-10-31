@@ -41,7 +41,7 @@ export default function CoursemapRsp() {
     function displayMarker(place: any) {
       if (place.category === '관광명소') {
         var id = 1;
-      } else if (place.category === '식당') {
+      } else if (place.category === '음식점') {
         var id = 2;
       } else if (place.category === '카페') {
         var id = 3;
