@@ -16,7 +16,6 @@ const MakeCourse: FC<Props> = (props: Props) => {
   return (
     <>
       <button onClick={onClick} className="setstartbtn">
-        {' '}
         "{props.startplacename}"에서 출발하기
       </button>
       {exist && (

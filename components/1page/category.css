@@ -25,7 +25,7 @@ img {
 /*clicked랑 머가달라서..?*/
 .enclicked {
   border-radius: 20px;
-  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+  box-shadow: 4px 6px 4px -1px #a9a9a9;
   margin: 10px;
   padding: 1em;
   background-color: #ffa9a9;
@@ -68,11 +68,12 @@ img {
 
 .enbutton {
   border-radius: 20px;
-  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+  box-shadow: 4px 6px 4px -1px #a9a9a9;
   margin: 10px;
   padding: 1em;
   cursor: pointer;
   background-color: #ffffff;
+
 }
 .enbutton:hover {
   background-color: #ffa9a9;
@@ -86,6 +87,9 @@ img {
   .enbutton {
     margin: 7px;
   }
+  .cbutton {
+    margin: 7px;
+  }
 }
 @media screen and (max-width: 700px) {
   .enbutton {
@@ -96,6 +100,7 @@ img {
   }
   .encategory_box {
     margin-left: 0;
+    margin-top: 3px;
   }
   .categortimg {
     display: none;
@@ -109,6 +114,7 @@ img {
   .encategory_box {
     margin-left: 0;
     margin-bottom: 1em;
+    margin-top: 3px;
   }
   .enbutton {
     padding: 0.5em;
@@ -124,6 +130,7 @@ img {
   .encategory_box {
     display: grid !important;
     text-align: center;
+    margin-top: 3px;
   }
   .categortimg {
     display: none;

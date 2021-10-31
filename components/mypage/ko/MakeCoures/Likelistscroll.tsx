@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import TodoItemList from './TodoItemlist';
+import React, { FC } from 'react';
 import '@components/mypage/List.scss';
 
 interface Props {
@@ -8,7 +7,6 @@ interface Props {
   onClick: any;
   ondeleteClick: any;
   onRemove: any;
-  start: any;
 }
 
 const Likelistscroll: FC<Props> = (props: Props) => {

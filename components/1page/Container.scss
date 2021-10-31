@@ -11,8 +11,8 @@
   font-size: 15px;
   padding-left: 2%;
   margin-bottom: 0.3em;
-  margin-left: 1em;
-  margin-top: 2%;
+  margin-left: 5em;
+  margin-top: 0.2%;
   border-radius: 40px;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   background: #ffffff;
@@ -29,13 +29,18 @@
 }
 
 .container {
-  width: 14em;
+  width: 16em;
   height: 5.5em;
   overflow: scroll;
   cursor: pointer;
+  border-radius: 5%;
   margin-top: 1em;
-  margin-left: 1.5em;
+  margin-left: 5.5em;
   margin-bottom: 1.5em;
+  border: 2px solid #dedede;
+  padding-top: 4px;
+  padding-left: 7px;
+  padding-bottom: 5px;
   &::-webkit-scrollbar {
     width: 0.8em;
     height: 5%;
@@ -63,7 +68,7 @@
 
 @media screen and (max-width: 600px) {
   .Searchinput {
-    margin-left: 1em;
+    margin-left: 5em;
   }
   .Searchinput input {
     width: 15em;

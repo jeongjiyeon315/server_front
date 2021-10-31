@@ -131,7 +131,7 @@ const Toggle = () => {
   const gwangjuindex = useRef(0);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_DB_HOST + '/api/en/province/findall').then((response) => {
+    axios.get(process.env.REACT_APP_DB_HOST+'/api/en/province/findall').then((response) => {
       for (var i = 0; i < response.data.data.length; i++) {
         setIndex(i);
         if (i === 0) {
@@ -938,18 +938,7 @@ const Toggle = () => {
   ));
 
   function selectedalert() {
-    if (selectedcity === '없음') {
-      if (selectedcategory === '안') {
-        return alert('Choose the DISTRICT and the CATEGORY');
-      } else {
-        return alert('Choose the DISTRICT');
-      }
-    }
-    if (selectedcategory === '안') {
-      if (selectedcity !== '없음') {
-        return alert('Choose the CATEGORY');
-      }
-    }
+    return alert('Choose the DISTRICT');
   }
 
   var city_engtokor: { [key: string]: string } = {
@@ -964,7 +953,7 @@ const Toggle = () => {
     Suncheon: '순천시',
     Jeonju: '전주시',
     Hadong: '하동군',
-    Gyeonju: '경주시',
+    Gyeongju: '경주시',
     Andong: '안동시',
     Incheon: '인천',
     Daejeon: '대전',
@@ -975,9 +964,32 @@ const Toggle = () => {
   };
   return (
     <>
-      <EnCategory setSelectedcategory={setSelectedcategory} />
-
       <img src={map} className="map" alt="map" />
+      <h4 style={{marginLeft:'2em'}}>Where do you want to go?</h4>
+
+      <div className="district_toggle">
+        <div className="nextbutton">
+          {selectedcity !== '없음'  ? (
+            <button className="gotosecondbtn" id="citycatedone" >
+              <Link
+                to={`/${city_engtokor[selectedcity]}`}
+                style={{ textDecoration: 'none', color: 'rgb(92, 88, 88)' }}
+              >
+                <span className="circle" aria-hidden="true">
+                  <span className="icon arrow"></span>
+                </span>
+                <span className="button-text">Let's Go!</span>
+              </Link>
+            </button>
+          ) : (
+            <button className="gotosecondbtn" onClick={selectedalert}>
+              <span className="circle" aria-hidden="true">
+                <span className="icon arrow"></span>
+              </span>
+              <span className="button-text">Let's Go</span>
+            </button>
+          )}
+        </div>
 
       <EnContainer
         setGyeongitoggle={setGyeongitoggle}
@@ -998,29 +1010,8 @@ const Toggle = () => {
         setSelectedcity={setSelectedcity}
       />
 
-      <div className="district_toggle">
-        <div className="nextbutton">
-          {selectedcity !== '없음' && selectedcategory !== '안' ? (
-            <button className="gotosecondbtn" id="citycatedone" onClick={selectedalert}>
-              <Link
-                to={`/${city_engtokor[selectedcity]}/${selectedcategory}`}
-                style={{ textDecoration: 'none', color: 'rgb(92, 88, 88)' }}
-              >
-                <span className="circle" aria-hidden="true">
-                  <span className="icon arrow"></span>
-                </span>
-                <span className="button-text">Let's Go!</span>
-              </Link>
-            </button>
-          ) : (
-            <button className="gotosecondbtn" onClick={selectedalert}>
-              <span className="circle" aria-hidden="true">
-                <span className="icon arrow"></span>
-              </span>
-              <span className="button-text">Let's Go</span>
-            </button>
-          )}
-        </div>
+
+
 
         <label
           className="district"

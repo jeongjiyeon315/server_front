@@ -2,7 +2,6 @@ import React, { FC, memo, useCallback, useEffect, useMemo, useRef, useState } fr
 import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import '@components/1page/Toggle.scss';
-import Category from '@components/1page/ko/Category/category';
 import Container from '@components/1page/ko/Container/Container';
 
 const Toggle = () => {
@@ -941,55 +940,19 @@ const Toggle = () => {
   ));
 
   function selectedalert() {
-    if (selectedcity === '없음') {
-      if (selectedcategory === '안') {
-        return alert('지역과 카테고리 모두 선택하여 주십시오');
-      } else {
-        return alert('지역을 선택하여 주십시오');
-      }
-    }
-    if (selectedcategory === '안') {
-      if (selectedcity !== '없음') {
-        return alert('카테고리를 선택하여 주십시오');
-      }
-    }
+    return alert('지역을 선택하여 주세요');
   }
 
   return (
     <>
-      <Category setSelectedcategory={setSelectedcategory} />
-
       <img src={map} className="map" alt="map" />
-
-      <Container
-        selectedcategory={selectedcategory}
-        selectedcity={selectedcity}
-        setGyeongitoggle={setGyeongitoggle}
-        setGangwontoggle={setGangwontoggle}
-        setChungnamtoggle={setChungnamtoggle}
-        setChungbuktoggle={setChungbuktoggle}
-        setGyeonnamtoggle={setGyeonnamtoggle}
-        setGyeonbuktoggle={setGyeonbuktoggle}
-        setJeonbuktoggle={setJeonbuktoggle}
-        setJeonnamtoggle={setJeonnamtoggle}
-        setIncheontoggle={setIncheontoggle}
-        setDaejeontoggle={setDaejeontoggle}
-        setGwangjutoggle={setGwangjutoggle}
-        setDaegutoggle={setDaegutoggle}
-        setUlsantoggle={setUlsantoggle}
-        setBusantoggle={setBusantoggle}
-        setMap={setMap}
-        setSelectedcity={setSelectedcity}
-      />
+      <h4 style={{ marginLeft: '2em' }}>어디로 떠나실건가요?</h4>
 
       <div className="district_toggle">
         <div className="nextbutton">
-          {selectedcity !== '없음' && selectedcategory !== '안' ? (
-            <button className="gotosecondbtn" id="citycatedone" onClick={selectedalert}>
-              <Link
-                to={`/${selectedcity}/${selectedcategory}`}
-                style={{ textDecoration: 'none', color: 'rgb(92, 88, 88)' }}
-              >
+          {selectedcity !== '없음' ? (
+            <button className="gotosecondbtn" id="citycatedone">
+              <Link to={`/${selectedcity}`} style={{ textDecoration: 'none', color: 'rgb(92, 88, 88)' }}>
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
                 </span>
@@ -1005,6 +968,27 @@ const Toggle = () => {
             </button>
           )}
         </div>
+
+        <Container
+          selectedcategory={selectedcategory}
+          selectedcity={selectedcity}
+          setGyeongitoggle={setGyeongitoggle}
+          setGangwontoggle={setGangwontoggle}
+          setChungnamtoggle={setChungnamtoggle}
+          setChungbuktoggle={setChungbuktoggle}
+          setGyeonnamtoggle={setGyeonnamtoggle}
+          setGyeonbuktoggle={setGyeonbuktoggle}
+          setJeonbuktoggle={setJeonbuktoggle}
+          setJeonnamtoggle={setJeonnamtoggle}
+          setIncheontoggle={setIncheontoggle}
+          setDaejeontoggle={setDaejeontoggle}
+          setGwangjutoggle={setGwangjutoggle}
+          setDaegutoggle={setDaegutoggle}
+          setUlsantoggle={setUlsantoggle}
+          setBusantoggle={setBusantoggle}
+          setMap={setMap}
+          setSelectedcity={setSelectedcity}
+        />
 
         <label
           className="district"

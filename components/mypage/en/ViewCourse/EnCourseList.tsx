@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { FC, useEffect, useState } from 'react';
 import EnCoursemap from './EnCoursemap';
+import EnCoursemaprsp from './EnCoursemaprsp';
 
 const EnCourseList = () => {
   var local = sessionStorage.getItem('memberid');
@@ -52,7 +53,7 @@ const EnCourseList = () => {
             setExist(true);
           }}
         >
-          <p className="deletename">{name}</p>
+          <span className="deletename">{name}</span>
         </button>
         <button
           className="viewimg"
@@ -73,7 +74,8 @@ const EnCourseList = () => {
           <Likelist list={course[index]} name={course[index].name} />
         ))}
       </div>
-      {exist && <EnCoursemap courseid={courseid} />}
+      <div className="enviewcoursemap">{exist && <EnCoursemap courseid={courseid} />}</div>
+      <div className="enviewcoursemap_rsp">{exist && <EnCoursemaprsp courseid={courseid} />}</div>
     </>
   );
 };

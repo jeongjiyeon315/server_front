@@ -7,6 +7,7 @@ const EnMain = () => {
   const [state, setState] = useState(0);
   const [course, setCourese] = useState([] as any);
   const [name, setName] = useState('');
+  const [idx, setIdx] = useState(-1);
 
   try {
     var memberid = Number(local.split('')[1]);
@@ -24,18 +25,20 @@ const EnMain = () => {
       .catch((error) => {});
   }, []);
 
-  const onClick = (id: number, coursename: string) => {
+  const onClick = (id: number, index: number, coursename: string) => {
     setState(id);
     setName(coursename);
+    setIdx(index);
   };
 
   const courselist: any = course.map((v: string, index: number) => (
     <>
       <button
-        id={v}
+        id={idx === index ? 'clickedcourse' : 'notclickedcourse'}
         key={index}
+        className="deletebutton"
         onClick={() => {
-          onClick(course[index].courseid, course[index].name);
+          onClick(course[index].courseid, index, course[index].name);
         }}
       >
         {course[index].name}
@@ -44,14 +47,16 @@ const EnMain = () => {
   ));
   return (
     <>
-      <div className="reviselist" style={{ margin: '2vh 0 1vh' }}>
-        {courselist}
+      <div className="revisetitle" style={{ margin: '2vh 0 1vh' }}>
+        Please choose a course to modify
       </div>
-      <div>Please choose a course to modify</div>
-      <div className="reviselist">{courselist}</div>
+      <div className="viewouter">{courselist}</div>
+
       {state !== 0 && (
         <>
-          <EnTodoTemplate courseid={state} coursename={name} setCourese={setCourese} />
+          <div className="makecourse_div">
+            <EnTodoTemplate courseid={state} coursename={name} setCourese={setCourese} />
+          </div>
         </>
       )}
     </>

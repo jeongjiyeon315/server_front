@@ -1,7 +1,7 @@
 import React, { FC, memo, useEffect, useMemo, useState } from 'react';
 import Layout from '@layouts/Layouts';
-import Controller from '@components/3page/ko/Controller/Controller';
 import { History, LocationState } from 'history';
+import Controller from '@components/3page/ko/Controller/Controller';
 import EnController from '@components/3page/en/Controller/EnController';
 interface Props {
   location: any;

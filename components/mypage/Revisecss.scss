@@ -1,25 +1,98 @@
 
 .revisemyplace {
-    width: 25vw;
-    height: 100%;
-    overflow: scroll;
-    cursor: pointer;
-    margin-left: 8vw;
-    margin-bottom: 1.5em;
-&::-webkit-scrollbar {
-     width: 0.8em;
-     height: 5%;
-     background: #ffffff;
- }
-&::-webkit-scrollbar-thumb {
-     border-radius: 3.5px;
-     background-color: #ced4da;
+  display: block !important;
+  width: 25vw;
+  height: 25vh;
+  overflow: scroll;
+  cursor: pointer;
+  margin-left: 8vw;
+  margin-bottom: 1.5em;
+  &::-webkit-scrollbar {
+    width: 0.8em;
+    height: 5%;
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
 
-&:hover {
-     background-color: #adb5bd;
- }
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
 }
-&::-webkit-scrollbar-track {
-     background: #ffffff;
- }
+
+
+
+.revisecoursebutton {
+  appearance: none;
+  background-color: #fafbfc;
+  border: 1px solid #cecece;
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292e;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  list-style: none;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.revisecoursebutton:hover {
+  background-color: #ececec;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.brevisecoursebutton:disabled {
+  background-color: #fafbfc;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959da5;
+  cursor: default;
+}
+
+.revisecoursebutton:active {
+  background-color: #edeff2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.revisecoursebutton:focus {
+  outline: 1px transparent;
+}
+
+.revisecoursebutton:before {
+  display: none;
+}
+
+.revisecoursebutton:-webkit-details-marker {
+  display: none;
+}
+.viewouter {
+  text-align: center;
+  margin-bottom: 1em;
+}
+@media screen and (max-width: 675px) {
+  .viewouter {
+    font-size: 0.9em;
+  }
+}
+#clickedcourse{
+  background: #cecece;
 }

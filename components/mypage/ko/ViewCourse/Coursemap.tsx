@@ -59,10 +59,8 @@ const Coursemap: FC<Props> = (props: Props) => {
       var infowindow = new kakao.maps.InfoWindow({
         content: `<span class="info-title">${place[i].myplaceDto.name}</span>`,
       });
-      infowindow.open(coursemap, marker);
 
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(coursemap, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+      infowindow.open(coursemap, marker);
 
       var infoTitle = document.querySelectorAll('.info-title');
       infoTitle.forEach(function (e: any) {
@@ -71,14 +69,26 @@ const Coursemap: FC<Props> = (props: Props) => {
         e.parentElement.style.top = '82px';
         e.parentElement.style.left = '50%';
         e.parentElement.style.marginLeft = -ml + 'px';
-        e.parentElement.style.width = w + 'px';
         e.parentElement.previousSibling.style.display = 'none';
         e.parentElement.parentElement.style.border = '0px';
         e.parentElement.parentElement.style.background = 'unset';
       });
+
       infowindow.close();
+
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(coursemap, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    }
+    function makeOverListener(map: any, marker: any, infowindow: { open: (arg0: any, arg1: any) => void }) {
+      return function () {
+        infowindow.open(map, marker);
+      };
+    }
+
+    function makeOutListener(infowindow: { close: () => void }) {
+      return function () {
+        infowindow.close();
+      };
     }
   };
 
@@ -96,16 +106,7 @@ const Coursemap: FC<Props> = (props: Props) => {
     setMarkers((prev: any) => [...prev, marker]);
     return marker;
   }
-  function makeOverListener(map: any, marker: any, infowindow: { open: (arg0: any, arg1: any) => void }) {
-    return function () {
-      infowindow.open(map, marker);
-    };
-  }
-  function makeOutListener(infowindow: { close: () => void }) {
-    return function () {
-      infowindow.close();
-    };
-  }
+
   function removeMarker() {
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
@@ -114,8 +115,8 @@ const Coursemap: FC<Props> = (props: Props) => {
   }
 
   return (
-    <div style={{ position: 'relative' }}>
-      <div className="viewcoursetitle">&lt;{name}&gt;</div>
+    <div className="viewcourse_div" style={{ position: 'relative' }}>
+      <div className="viewcoursetitle">{name}</div>
       <ul className="viewcourseul">
         {place.map((v: string, index: number) => (
           <>

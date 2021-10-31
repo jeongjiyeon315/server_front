@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import EnTodoItemList from './EnTodoItemlist';
 import EnTodoTitle from './EnTodoTitle';
+import EnCourseInputSave from '@components/mypage/en/ReviseCourse/EnCourseInputSave';
+import EnCoursemap from '@components/mypage/en/Course/EnCoursemap';
+import EnCoursemapRsp from '@components/mypage/en/Course/EnCoursemapRsp';
+import EnLikelistscroll from '@components/mypage/en/ReviseCourse/EnLikelistscroll';
 interface Props {
   courseid: number;
   coursename: string;
@@ -56,6 +60,14 @@ const EnTodoTemplate: FC<Props> = (props: Props) => {
       }
     }
   };
+  const ondeleteClick = (list: any) => {
+    var myplaceid = list.id;
+    setPlacelist(placelist.filter((place: any) => place.id !== myplaceid));
+    setTodos(todos.filter((place: any) => place.id !== myplaceid));
+    axios
+      .delete(process.env.REACT_APP_DB_HOST + `/api/eb/myplace/deletebymyplace/${memberid}/${myplaceid}`)
+      .catch((error) => {});
+  };
 
   const likedlist: any = namelist.map((v: string, index: number) => (
     <>
@@ -73,17 +85,40 @@ const EnTodoTemplate: FC<Props> = (props: Props) => {
 
   return (
     <>
-      <div className="likedlist" style={{ display: 'inline-block' }}>
-        {likedlist}
+      <div className="coursetitle">Modify your course name</div>
+      <EnCourseInputSave todos={todos} onRemove={onRemove} courseid={props.courseid} coursename={props.coursename} />
+
+      <div className="makecourselist">
+        <EnTodoItemList todos={todos} onRemove={onRemove} onClick={onClick} ondeleteClick={ondeleteClick} />
       </div>
-      <EnTodoTitle>Please change the course</EnTodoTitle>
-      <EnTodoItemList
-        todos={todos}
-        onRemove={onRemove}
-        courseid={props.courseid}
-        coursename={props.coursename}
-        setCourese={props.setCourese}
-      />
+
+      <div className="myplacemap_div">
+        <div className="coursemap" style={{ position: 'relative', width: '100%' }}>
+          <EnCoursemap />
+          <span className="likedlist" style={{ display: 'inline-block', position: 'absolute' }}>
+            <EnLikelistscroll
+              placelist={placelist}
+              todos={todos}
+              onClick={onClick}
+              ondeleteClick={ondeleteClick}
+              onRemove={onRemove}
+            />
+          </span>
+        </div>
+
+        <div className="coursemap_responsive" style={{ position: 'relative', width: '100%' }}>
+          <EnCoursemapRsp />
+          <div className="likedlist" style={{ display: 'inline-block', position: 'absolute' }}>
+            <EnLikelistscroll
+              placelist={placelist}
+              todos={todos}
+              onClick={onClick}
+              ondeleteClick={ondeleteClick}
+              onRemove={onRemove}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

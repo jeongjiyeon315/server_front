@@ -66,6 +66,11 @@ const EnSlide: FC<Props> = (props: Props) => {
     음식점: 2,
     카페: 3,
   };
+  var category_kortoeng: { [key: string]: string } = {
+    관광명소: 'attraction',
+    음식점: 'restaurant',
+    카페: 'cafe',
+  };
   var city_engtokor: { [key: string]: string } = {
     가평군: 'Gapyeong',
     고양시: 'Goyang',
@@ -78,7 +83,7 @@ const EnSlide: FC<Props> = (props: Props) => {
     순천시: 'Suncheon',
     전주시: 'Jeonju',
     하동군: 'Hadong',
-    경주시: 'Gyeonju',
+    경주시: 'Gyeongju',
     안동시: 'Andong',
     인천: 'Incheon',
     대전: 'Daejeon',
@@ -131,7 +136,9 @@ const EnSlide: FC<Props> = (props: Props) => {
   return (
     <>
       <div className="title">
-        <h2>TOP5 of {city_engtokor[props.selectedcity]}</h2>
+        <h2 style={{ marginBottom: '0px' }}>
+          TOP5 of {category_kortoeng[props.selectedcategory]} in {city_engtokor[props.selectedcity]}{' '}
+        </h2>
       </div>
       <div className="carousel">
         <div className="carousel_card">
@@ -139,7 +146,7 @@ const EnSlide: FC<Props> = (props: Props) => {
             <div className={imgloc[start]}>
               <div className="carousel-card-mask">
                 <img src={pic1} alt="pic" className="carousel-img" />
-                <span>
+                <span className="carousel_span">
                   <p className="top5name_p">{top5name[0]}</p>
                   <p className="top5phone_p">{top5phone[0]}</p>
                   <p className="top5add_p">{top5add[0]}</p>
@@ -149,7 +156,7 @@ const EnSlide: FC<Props> = (props: Props) => {
             <div className={imgloc[(start + 1) % 5]}>
               <div className="carousel-card-mask">
                 <img src={pic2} alt="pic" className="carousel-img" />
-                <span>
+                <span className="carousel_span">
                   <p className="top5name_p">{top5name[1]}</p>
                   <p className="top5phone_p">{top5phone[1]}</p>
                   <p className="top5add_p">{top5add[1]}</p>
@@ -159,7 +166,7 @@ const EnSlide: FC<Props> = (props: Props) => {
             <div className={imgloc[(start + 2) % 5]}>
               <div className="carousel-card-mask">
                 <img src={pic3} alt="pic" className="carousel-img" />
-                <span>
+                <span className="carousel_span">
                   <p className="top5name_p">{top5name[2]}</p>
                   <p className="top5phone_p">{top5phone[2]}</p>
                   <p className="top5add_p">{top5add[2]}</p>
@@ -169,7 +176,7 @@ const EnSlide: FC<Props> = (props: Props) => {
             <div className={imgloc[(start + 3) % 5]}>
               <div className="carousel-card-mask">
                 <img src={pic4} alt="pic" className="carousel-img" />
-                <span>
+                <span className="carousel_span">
                   <p className="top5name_p">{top5name[3]}</p>
                   <p className="top5phone_p">{top5phone[3]}</p>
                   <p className="top5add_p">{top5add[3]}</p>
@@ -179,7 +186,7 @@ const EnSlide: FC<Props> = (props: Props) => {
             <div className={imgloc[(start + 4) % 5]}>
               <div className="carousel-card-mask">
                 <img src={pic5} alt="pic" className="carousel-img" />
-                <span>
+                <span className="carousel_span">
                   <p className="top5name_p">{top5name[4]}</p>
                   <p className="top5phone_p">{top5phone[4]}</p>
                   <p className="top5add_p">{top5add[4]}</p>

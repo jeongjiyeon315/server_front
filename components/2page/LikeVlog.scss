@@ -1,10 +1,9 @@
 .place_info {
   display: inline-block;
 }
-.likevlog_div{
+.likevlog_div {
   position: relative;
 }
-
 
 /////////////////////////////////////////////
 .likevlog_div {
@@ -32,23 +31,6 @@
     background: #ffffff;
   }
 }
-
-
-@media screen and (max-width: 700px) {
-  .likevlog_div{
-    position: relative;
-    margin :0;
-  }
-}
-
-
-
-
-
-
-
-
-
 
 .cate {
   display: none;
@@ -78,15 +60,15 @@
 .likeplace {
   padding-right: 0.5em;
   font-size: 13px;
-  cursor:pointer;
+  cursor: pointer;
   /*padding-left: 10;*/
 }
-.likeplace:hover{
-  color:black;
+.likeplace:hover {
+  color: black;
   font-size: 1em;
-  transition:300ms ease all;
+  transition: 300ms ease all;
 }
-.custom{
+.custom {
   padding: 0.3em 0 !important;
   display: block;
   margin: auto;
@@ -95,9 +77,16 @@
   border: 1px solid #e5e5e5;
   border-radius: 0.7em;
   color: rgb(92, 88, 88);
-  width:95% !important;
+  width: 95% !important;
 }
-.icon_li{
+.icon_li {
   margin: 7px 0.69% 7px !important;
   overflow: hidden !important;
+}
+
+@media screen and (max-width: 700px) {
+  .likevlog_div {
+    position: relative;
+    margin: 0;
+  }
 }

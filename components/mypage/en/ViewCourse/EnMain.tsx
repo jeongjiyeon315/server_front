@@ -5,7 +5,7 @@ import CourseList from './EnCourseList';
 const EnViewMain = () => {
   return (
     <>
-      <h3 className="viewtitle">View my course list</h3>
+      <div className="revisetitle" style={{margin:'2vh 0 1vh'}}>Please choose a course to check      </div>
       <CourseList />
     </>
   );

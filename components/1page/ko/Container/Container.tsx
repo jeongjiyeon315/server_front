@@ -252,10 +252,11 @@ const Container = (props: any) => {
     <div className="Searchinput">
       <input
         type="text"
-        placeholder="어디로 떠나실건가요?"
+        placeholder="가고싶은 지역을 검색하세요"
         onChange={(event) => {
           setSearchTerm(event.target.value);
         }}
+        style={{width:'15em'}}
       />
       <div className="container">
         {JSONDATA.filter((val: any) => {

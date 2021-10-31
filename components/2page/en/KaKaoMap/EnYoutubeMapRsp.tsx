@@ -60,6 +60,7 @@ const EnYoutubeMapRsp: FC<Props> = ({ children, videoid, history, vlogplaceid })
 
     x.current = 0;
     y.current = 0;
+
     for (var i = 0; i < place.length; i++) {
       x.current += place[i].location_x;
       y.current += place[i].location_y;
@@ -68,64 +69,57 @@ const EnYoutubeMapRsp: FC<Props> = ({ children, videoid, history, vlogplaceid })
     var Position = new kakao.maps.LatLng(y.current / place.length, x.current / place.length);
     youtubemap2.setCenter(Position);
 
-    for (var i = 0; i < place.length; i++) {
-      var placePosition = new kakao.maps.LatLng(place[i].location_y, place[i].location_x),
-        marker = addMarker(placePosition, i, place[i].categoryId);
-      var infowindow = new kakao.maps.InfoWindow({
-        content: `<span class="info-title">${place[i].name}</span>`,
-      });
-      infowindow.open(youtubemap2, marker);
+    var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(youtubemap2, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    function displayMarker(place: any, i: any) {
+      var placePosition = new kakao.maps.LatLng(place.location_y, place.location_x),
+        marker = addMarker(placePosition, i, place.categoryId);
+      marker.setMap(youtubemap2);
 
-      var infoTitle = document.querySelectorAll('.info-title');
-      infoTitle.forEach(function (e: any) {
-        var w = e.offsetWidth + 10;
-        var ml = w / 2;
-        e.parentElement.style.top = '82px';
-        e.parentElement.style.left = '50%';
-        e.parentElement.style.marginLeft = -ml + 'px';
-        e.parentElement.style.width = w + 'px';
-        e.parentElement.previousSibling.style.display = 'none';
-        e.parentElement.parentElement.style.border = '0px';
-        e.parentElement.parentElement.style.background = 'unset';
+      kakao.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(`<span class="info-title">${place.name}</span>`);
+        infowindow.open(youtubemap2, marker);
+        var infoTitle = document.querySelectorAll('.info-title');
+        infoTitle.forEach(function (e: any) {
+          var w = e.offsetWidth;
+          var ml = w / 2;
+          e.parentElement.style.top = '62px';
+          e.parentElement.style.left = '50%';
+          e.parentElement.style.marginLeft = -ml + 'px';
+          e.parentElement.previousSibling.style.display = 'none';
+          e.parentElement.parentElement.style.border = '0px';
+          e.parentElement.parentElement.style.background = 'unset';
+        });
+        infowindow.close();
+        infowindow.open(youtubemap2, marker);
       });
-      infowindow.close();
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(youtubemap2, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    }
+
+    for (let j = 0; j < place.length; j++) {
+      displayMarker(place[j], j);
+    }
+
+    function addMarker(position: any, idx: any, id: any) {
+      var imageSrc = `/src/icon/${id}.png`,
+        imageSize = new kakao.maps.Size(36, 37),
+        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
+        marker = new kakao.maps.Marker({
+          position: position,
+          image: markerImage,
+        });
+
+      marker.setMap(youtubemap2);
+      setMarkers((prev: any) => [...prev, marker]);
+      return marker;
+    }
+
+    function removeMarker() {
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      setMarkers([]);
     }
   };
-
-  function addMarker(position: any, idx: any, id: any) {
-    var imageSrc = `/src/icon/${id}.png`,
-      imageSize = new kakao.maps.Size(36, 37),
-      markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
-      marker = new kakao.maps.Marker({
-        position: position,
-        image: markerImage,
-      });
-
-    marker.setMap(youtubemap2);
-    setMarkers((prev: any) => [...prev, marker]);
-    return marker;
-  }
-  function makeOverListener(map: any, marker: any, infowindow: { open: (arg0: any, arg1: any) => void }) {
-    return function () {
-      infowindow.open(map, marker);
-    };
-  }
-  function makeOutListener(infowindow: { close: () => void }) {
-    return function () {
-      infowindow.close();
-    };
-  }
-  function removeMarker() {
-    for (var i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
-    }
-    setMarkers([]);
-  }
 
   return (
     <div style={{ position: 'relative' }}>

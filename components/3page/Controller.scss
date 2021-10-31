@@ -59,8 +59,6 @@ $teal:20px;
 }
 
 #threshold {
-
-
   -webkit-appearance: none;
   width: calc(300px - (#{$range-label-width + 13px}));
   height: $range-track-height;
@@ -312,6 +310,11 @@ input::-moz-focus-outer {
   }
   #threshold{
     width: 60%;
+    height:0.4em;
+    &::-webkit-slider-thumb {
+      width: 15px;
+      height: 15px;
+    }
   }
 }
 

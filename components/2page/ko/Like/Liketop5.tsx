@@ -54,7 +54,6 @@ const Liketop5: FC<Props> = (props: Props) => {
         .catch((error) => {});
     }
   }
-
   function func_delete(e: number) {
     axios
       .delete(process.env.REACT_APP_DB_HOST + `/api/myplace/deletebyplace/${memberid}/${props.top5placeid[e]}`)
@@ -227,7 +226,6 @@ const Liketop5: FC<Props> = (props: Props) => {
                 onClick={() => {
                   func(0);
                 }}
-                value="0"
               />
               <label className="tcustom">
                 {heart(0)}

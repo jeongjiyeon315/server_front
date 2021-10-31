@@ -17,26 +17,24 @@ button.listbtn {
 }
 
 //TodoItemlist
-.makecourselist{
+.makecourselist {
   //text-align: center;
 }
-.courselist_ul{
- list-style: none;
+.courselist_ul {
+  list-style: none;
   display: table;
 }
-.courselist{
-  float:left;
+.courselist {
+  float: left;
 }
-.xmark_button{
+.xmark_button {
   background: transparent;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
 }
-.xmarkimg{
+.xmarkimg {
   margin-bottom: 0.4em;
 }
-
-
 
 .likedlist {
   width: 25vw;
@@ -62,36 +60,31 @@ button.listbtn {
     background: #ffffff;
   }
 }
-.Likelistname{
+.Likelistname {
   margin-bottom: 2vh;
-  border:1px solid rgb(92 88 88);
-  border-radius: 15px;
+  border: 1px solid rgb(92 88 88);
+  border-radius: 9px;
   text-align: center;
-  padding:1.5px;
+  padding: 1.5px;
 }
 
-.mypagelist{
+.mypagelist {
   padding-bottom: 0.5em;
 }
-.listbtn{
-  cursor:pointer;
+.listbtn {
+  cursor: pointer;
 }
-.likeplacename{
-  cursor:pointer;
+.likeplacename {
+  cursor: pointer;
 }
-
-
-
-
 
 //CourseInputSave
-.courseinputsave{
+.courseinputsave {
   text-align: right;
-  margin : 2.5vh 0px;
+  margin: 2.5vh 0px;
 }
 
-
-#inputsave_text{
+#inputsave_text {
   font-size: 8px;
   color: #a7a7a7;
 }
@@ -120,14 +113,13 @@ button.listbtn {
   margin-left: 10px;
   margin-button: 10px;
   height: 2em;
-  border: none;
   background-color: transparent;
   background: #fff;
   border-radius: 15px;
-  box-shadow: 0 3px 14px -1px rgb(0 0 0 / 60%);
+  box-shadow: 4px 4px 4px -1px #f08080;
+  border: 1px solid #f08080;
   width: 4em;
   cursor: pointer;
-
 }
 
 .save_button img {
@@ -137,8 +129,8 @@ button.listbtn {
 
 //모바일 반응형
 @media (max-width: 675px) {
-  .courseinputsave{
-    margin :1.5vh 0;
+  .courseinputsave {
+    margin: 1.5vh 0;
   }
 
   .save_input {
@@ -160,14 +152,16 @@ button.listbtn {
   }
 }
 
-.coursemap{
-  margin:auto;
+.coursemap {
+  margin: auto;
   display: block;
 }
-.coursemap_responsive{
+.coursemap_responsive {
   display: none;
 }
-
+.info-title {
+  font-size: 0.5em;
+}
 /*//맵 반응형 설정 (675px)*/
 @media screen and (max-width: 675px) {
   .coursemap {
@@ -176,25 +170,30 @@ button.listbtn {
   .coursemap_responsive {
     position: relative;
     width: 90%;
-    height: 70vh;
+    //height: 70vh;
     margin: auto;
     display: block;
   }
-  #myplacemapRsp{
+  #myplacemapRsp {
     //display: none;
   }
 
-  .likedlist{
-    width:100%;
+  .likedlist {
+    width: 100%;
     margin-left: 0;
-    margin-top:2vh;
-    height: 50%;
-    z-index: -1;
+    margin-top: 2vh;
+    height: 40%;
+    position: relative !important;
   }
 }
 
-#myplacemap{
+#myplacemap {
   width: 50%;
   height: 50%;
   display: inline-block;
+}
+@media (max-width: 375px) {
+  .courseinputsave {
+    text-align: end !important;
+  }
 }

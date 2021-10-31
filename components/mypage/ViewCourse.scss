@@ -1,8 +1,8 @@
 .deletebutton {
   appearance: none;
-  background-color: #fafbfc;
-  border: 1px solid #cecece;
-  border-radius: 6px;
+  background-color: #ffffff;
+  border: 2px solid #c7c9d2;
+  border-radius: 4px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: #24292e;
@@ -20,9 +20,8 @@
   white-space: nowrap;
   word-wrap: break-word;
   width: fit-content;
-  height: fit-content;
+  height: 30;
   margin-left: 0.5em;
-  margin-right: 0.5em;
 }
 
 .deletebutton:hover {
@@ -56,6 +55,10 @@
   display: none;
 }
 
+.viewcourse_div {
+  border-top: 1px solid #cecece;
+}
+
 .viewcourseul {
   list-style: none;
   text-align: center;
@@ -68,6 +71,7 @@
 .viewcoursetitle {
   text-align: center;
   margin-top: 1em;
+  font-size: 2em;
 }
 
 .viewtitle {
@@ -85,13 +89,20 @@
 
 .viewbuttonlist {
   display: inline-block;
+  margin-right: 0.5em;
 }
 .viewimg {
   background: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
-
+.enviewcoursemap_rsp {
+  display: none;
+}
+.enviewcoursemap {
+  display: block;
+}
 @media screen and (max-width: 675px) {
   #coursemap {
     width: 100% !important;
@@ -101,7 +112,7 @@
     font-size: 0.8em;
   }
   .viewcoursetitle {
-    font-size: 0.9em;
+    font-size: 1.3em;
   }
   .viewouter {
     font-size: 0.9em;
@@ -115,8 +126,18 @@
   }
   .viewbuttonlist {
     display: block;
+    margin-bottom: 0.5em;
   }
   .viewtrashbutton {
     width: 20;
+  }
+  .enviewcoursemap_rsp {
+    display: block;
+  }
+  .enviewcoursemap {
+    display: none;
+  }
+  .deletebutton {
+    height: 20;
   }
 }

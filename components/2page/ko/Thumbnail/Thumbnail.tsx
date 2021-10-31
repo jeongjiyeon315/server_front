@@ -2,8 +2,8 @@ import React, { FC, memo, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import '@components/2page/Thumbnail.scss';
 import YoutubeMapevent from '@components/2page/ko/KaKaoMap/YoutubeMapevent';
-import YoutubeMapRsp from '@components/2page/ko/KaKaoMap/YoutubeMapRsp';
 import { History, LocationState } from 'history';
+import YoutubeMapRsp from '../KaKaoMap/YoutubeMapRsp';
 
 interface Props {
   selectedcity: any;

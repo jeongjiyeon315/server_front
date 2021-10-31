@@ -1,10 +1,11 @@
 /*global kakao */
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
+import '@components/mypage/List.scss';
 
 export default function CoursemapRsp() {
-  const latt = useRef(0);
-  const long = useRef(0);
+  const x = useRef(0);
+  const y = useRef(0);
   const kakao = (window as any).kakao;
   var local = sessionStorage.getItem('memberid');
   try {
@@ -28,56 +29,72 @@ export default function CoursemapRsp() {
   }, [myplace]);
 
   const mapscript = () => {
-    myplace.forEach((el: any) => {
-      latt.current += el.location_y;
-      long.current += el.location_x;
-    });
-
     let container = document.getElementById('myplacemapRsp');
     let options = {
-      center: new kakao.maps.LatLng(latt.current / myplace.length, long.current / myplace.length),
-      level: 13,
+      center: new kakao.maps.LatLng(37.55699327194725, 126.97267350572926),
+      level: 10,
     };
+    var top5map = new kakao.maps.Map(container, options);
 
-    const myplacemap = new kakao.maps.Map(container, options);
+    var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-    myplace.forEach((el: any) => {
-      var imageSize = new kakao.maps.Size(36, 37),
-        imageOption = { offset: new kakao.maps.Point(27, 69) };
-      if (el.category === '관광명소') {
+    function displayMarker(place: any) {
+      if (place.category === '관광명소') {
         var id = 1;
-      } else if (el.category === '식당') {
+      } else if (place.category === '식당') {
         var id = 2;
-      } else {
+      } else if (place.category === '카페') {
         var id = 3;
+      } else {
+        var id = 0;
       }
-      var imageSrc = `/src/icon/${id}.png`;
-      const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-      const marker = new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(el.location_y, el.location_x),
-        image: markerImage,
-      });
+      var Src = `/src/icon/${id}.png`;
+      var imageSrc = Src,
+        imageSize = new kakao.maps.Size(36, 37),
+        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
+        marker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(place.location_y, place.location_x),
+          image: markerImage,
+        });
 
-      marker.setMap(myplacemap);
-      var infowindow = new kakao.maps.InfoWindow({
-        content: el.name,
-      });
+      marker.setMap(top5map);
 
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(myplacemap, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-    });
-
-    function makeOverListener(map: any, marker: any, infowindow: { open: (arg0: any, arg1: any) => void }) {
-      return function () {
-        infowindow.open(map, marker);
-      };
-    }
-
-    function makeOutListener(infowindow: { close: () => void }) {
-      return function () {
+      kakao.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(`<span class="info-title">${place.name}</span>`);
+        infowindow.open(top5map, marker);
+        var infoTitle = document.querySelectorAll('.info-title');
+        infoTitle.forEach(function (e: any) {
+          var w = e.offsetWidth + 10;
+          var ml = w / 2;
+          e.parentElement.style.top = '62px';
+          e.parentElement.style.left = '50%';
+          e.parentElement.style.marginLeft = -ml + 'px';
+          e.parentElement.previousSibling.style.display = 'none';
+          e.parentElement.parentElement.style.border = '0px';
+          e.parentElement.parentElement.style.background = 'unset';
+        });
         infowindow.close();
-      };
+        infowindow.open(top5map, marker);
+      });
     }
+
+    for (let j = 0; j < myplace.length; j++) {
+      displayMarker(myplace[j]);
+    }
+
+    x.current = 0;
+    y.current = 0;
+
+    for (var i = 0; i < myplace.length; i++) {
+      x.current += myplace[i].location_x;
+      y.current += myplace[i].location_y;
+    }
+
+    var number = myplace.length;
+
+    var Position = new kakao.maps.LatLng(y.current / number, x.current / number);
+
+    top5map.setCenter(Position);
   };
 
   return (

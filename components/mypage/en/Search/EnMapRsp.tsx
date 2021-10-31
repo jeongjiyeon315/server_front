@@ -1,80 +1,76 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
-import MakeCourse from '@components/mypage/ko/MakeCoures/MakeCourse';
+/*global kakao */
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+import EnMakeCourse from '../MakeCoures/EnMakeCourse';
+import '@components/mypage/en/Search/Search.scss';
 
-interface Props {
-  Place: string;
-}
-
-const Map: FC<Props> = ({ children, Place }) => {
+const EnMap = () => {
   const kakao = (window as any).kakao;
+  const [station, setStation] = useState([] as any);
   const [select, setSelect] = useState('');
   const [open, setOpen] = useState(false);
   const [map, setMap] = useState(null);
-  const [startplacename,setStartplacename] = useState('');
+  const [startplacename, setStartplacename] = useState('');
+  const x = useRef(0);
+  const y = useRef(0);
 
   useEffect(() => {
     const container = document.getElementById('myMapRsp');
     const options = {
       center: new kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3,
+      level: 13,
     };
     setMap(new kakao.maps.Map(container, options));
   }, []);
 
   useEffect(() => {
+    axios.get(process.env.REACT_APP_DB_HOST + '/api/en/station/findall').then((response) => {
+      setStation(response.data.data);
+    });
+  }, []);
+
+  function displayMarker(place: any) {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-    const ps = new kakao.maps.services.Places();
+    let marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(place.location_y, place.location_x),
+    });
 
-    ps.keywordSearch(Place, placesSearchCB);
+    marker.setMap(map);
 
-    function placesSearchCB(data: any, status: any, pagination: any) {
-      if (status === kakao.maps.services.Status.OK) {
-        let bounds = new kakao.maps.LatLngBounds();
+    kakao.maps.event.addListener(marker, 'click', function () {
+      infowindow.setContent('<div style="padding:5px;font-size:8px;">' + place.name + '</div>');
+      infowindow.open(map, marker);
+      setSelect(place);
+      setStartplacename(place.name);
+      setOpen(true);
+    });
+  }
 
-        for (let i = 0; i < data.length; i++) {
-          displayMarker(data[i]);
-          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-        }
+  if (station.length !== 0) {
+    x.current = 0;
+    y.current = 0;
 
-        map.setBounds(bounds);
-      } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-        alert('검색 결과가 존재하지 않습니다');
-        return;
-      } else if (status === kakao.maps.services.Status.ERROR) {
-        alert('검색 결과 중 오류가 발생했습니다');
-        return;
-      }
+    for (var i = 0; i < station.length; i++) {
+      x.current += station[i].location_x;
+      y.current += station[i].location_y;
     }
-    function displayMarker(place: any) {
-      let marker = new kakao.maps.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x),
-      });
-      kakao.maps.event.addListener(marker, 'mouseover', function () {
-        infowindow.open(map, marker);
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-      });
-      kakao.maps.event.addListener(marker, 'mouseout', function () {
-        infowindow.close();
-      });
-      // 마커에 클릭이벤트를 등록합니다
-      kakao.maps.event.addListener(marker, 'click', function () {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-        infowindow.open(map, marker);
-        setSelect(place);
-        setStartplacename(place.place_name)
-        setOpen(true);
-      });
+
+    var Position = new kakao.maps.LatLng(y.current / station.length, x.current / station.length);
+
+    map.setCenter(Position);
+
+    for (let j = 0; j < station.length; j++) {
+      displayMarker(station[j]);
     }
-  }, [Place]);
+  }
 
   return (
     <>
-      <div id="myMapRsp" style={{ width: '100%', height: '50%', margin:'auto' }} />
-      {open && <MakeCourse start={select} startplacename={startplacename}/>}
+      <div id="myMapRsp" style={{ width: '30vw', height: '30vw', margin: 'auto' }} />
+      {open && <EnMakeCourse start={select} startplacename={startplacename} />}
     </>
   );
 };
 
-export default React.memo(Map);
+export default EnMap;

@@ -1,6 +1,7 @@
 /*global kakao */
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
+import '@components/mypage/List.scss';
 
 export default function EnCoursemap() {
   const latt = useRef(0);
@@ -44,12 +45,14 @@ export default function EnCoursemap() {
     myplace.forEach((el: any) => {
       var imageSize = new kakao.maps.Size(36, 37),
         imageOption = { offset: new kakao.maps.Point(27, 69) };
-      if (el.category === '관광명소') {
+      if (el.category === 'Attraction') {
         var id = 1;
-      } else if (el.category === '식당') {
+      } else if (el.category === 'Restaurant') {
         var id = 2;
-      } else {
+      } else if (el.category === 'Cafe') {
         var id = 3;
+      } else {
+        var id = 0;
       }
       var imageSrc = `/src/icon/${id}.png`;
       const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
@@ -59,10 +62,23 @@ export default function EnCoursemap() {
       });
 
       marker.setMap(myplacemap);
-      var infowindow = new kakao.maps.InfoWindow({
-        content: el.name,
-      });
 
+      var infowindow = new kakao.maps.InfoWindow({
+        content: `<span class="info-title">${el.name}</span>`,
+      });
+      infowindow.open(myplacemap, marker);
+      var infoTitle = document.querySelectorAll('.info-title');
+      infoTitle.forEach(function (e: any) {
+        var w = e.offsetWidth;
+        var ml = w / 2;
+        e.parentElement.style.top = '82px';
+        e.parentElement.style.left = '50%';
+        e.parentElement.style.marginLeft = -ml + 'px';
+        e.parentElement.previousSibling.style.display = 'none';
+        e.parentElement.parentElement.style.border = '0px';
+        e.parentElement.parentElement.style.background = 'unset';
+      });
+      infowindow.close();
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(myplacemap, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
     });

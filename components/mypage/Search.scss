@@ -85,10 +85,10 @@ form.inputForm {
   .searchplace_responsive {
     position: relative;
     width: 90%;
-    height: 70vh;
+    //height: 70vh;
     margin: auto;
     display: block;
-    margin-bottom: 45vh;
+    //margin-bottom: 17vh;
   }
 }
 
@@ -97,7 +97,8 @@ form.inputForm {
   background: transparent;
   margin: 1vh 0px;
   padding: 0.5vw 1vw;
-  border: 1px solid rgb(92 88 88);
+  box-shadow: 4px 4px 4px -1px #F08080;
+  border: 1px solid #F08080;
   border-radius: 20px;
   cursor: pointer;
 }

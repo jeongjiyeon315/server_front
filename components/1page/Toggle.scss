@@ -95,6 +95,8 @@ $black: #f08080;
       text-transform: uppercase;
       border: 0.5px solid #d9d9d9;
       border-radius: 50px;
+      box-shadow: 4px 4px 4px -1px #f08080;
+      border: 1px solid #f08080;
     }
   }
   &:hover {
@@ -117,6 +119,7 @@ $black: #f08080;
   position: relative;
   width: 40%;
   vertical-align: middle;
+  margin-left: 4em;
 }
 label {
   vertical-align: middle;

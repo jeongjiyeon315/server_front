@@ -23,7 +23,7 @@ const EnList: FC<Props> = (props: Props) => {
 
   return (
     <>
-      <div className="coursetitle">Make your course!</div>
+      <div className="coursetitle">Choose places to make your course!</div>
 
       <div className="makecourselist">
         <EnTodoItemList todos={props.todos} onRemove={props.onRemove} placeid={props.start} />

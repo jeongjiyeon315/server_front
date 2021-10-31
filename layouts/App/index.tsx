@@ -13,7 +13,8 @@ const App = () => {
       <Route exact path="/" component={HomePage} />
       <Route exact path="/login" component={LogIn} />
       <Route exact path="/mypage" component={Mypage} />
-      <Route exact path="/:selectedcity/:selectedcategory" component={Second} />
+      <Route exact path="/:selectedcity" component={Second} />
+      {/*<Route exact path="/:selectedcity/:selectedcategory" component={Second} />*/}
       <Route exact path="/:selectedcity/:selectedcategory/more" component={Third} />
     </Switch>
   );

@@ -25,7 +25,7 @@ const LogIn = ({ history }: RouteComponentProps) => {
         'Content-type': 'application/json',
       };
       axios
-        .post(process.env.REACT_APP_DB_HOST + '/api/member/login', JSON.stringify({ password, username }), { headers })
+        .post('/api/member/login', JSON.stringify({ password, username }), { headers })
         .then((res) => {
           sessionStorage.setItem('memberid', JSON.stringify(res.data.memberid));
           if (language[1] === 'KO') {

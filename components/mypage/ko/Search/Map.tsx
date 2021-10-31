@@ -10,7 +10,7 @@ const Map: FC<Props> = ({ children, Place }) => {
   const [select, setSelect] = useState('');
   const [open, setOpen] = useState(false);
   const [map, setMap] = useState(null);
-  const [startplacename,setStartplacename] = useState('');
+  const [startplacename, setStartplacename] = useState('');
 
   useEffect(() => {
     const container = document.getElementById('myMap');
@@ -57,13 +57,11 @@ const Map: FC<Props> = ({ children, Place }) => {
       kakao.maps.event.addListener(marker, 'mouseout', function () {
         infowindow.close();
       });
-      // 마커에 클릭이벤트를 등록합니다
       kakao.maps.event.addListener(marker, 'click', function () {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
         infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
         infowindow.open(map, marker);
         setSelect(place);
-        setStartplacename(place.place_name)
+        setStartplacename(place.place_name);
         setOpen(true);
       });
     }
@@ -71,8 +69,8 @@ const Map: FC<Props> = ({ children, Place }) => {
 
   return (
     <>
-      <div id="myMap" style={{ width: '30vw', height: '30vw', margin:'auto' }} />
-      {open && <MakeCourse start={select} startplacename={startplacename}/>}
+      <div id="myMap" style={{ width: '30vw', height: '30vw', margin: 'auto' }} />
+      {open && <MakeCourse start={select} startplacename={startplacename} />}
     </>
   );
 };

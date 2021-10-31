@@ -252,10 +252,11 @@ const EnContainer = (props: any) => {
     <div className="Searchinput">
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search the district"
         onChange={(event) => {
           setSearchTerm(event.target.value);
         }}
+        style={{width:'15em'}}
       />
       <div className="container">
         {JSONDATA.filter((val: any) => {

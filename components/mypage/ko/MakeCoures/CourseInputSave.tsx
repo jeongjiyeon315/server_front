@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { FC, useState } from 'react';
-import TodoItem from './TodoItem';
 import '@components/mypage/List.scss';
 
 interface Props {
@@ -49,7 +48,7 @@ const CourseInputSave: FC<Props> = (props: Props) => {
     <>
       <div className="courseinputsave">
         <form className="inputForm">
-          <span id="inputsave_text">내 코스로 저장해보세요!</span>
+          <span id="inputsave_text">만든 코스를 저장해보세요!</span>
           <input onChange={onChange} className="save_input" placeholder="코스 이름을 지어주세요" />
           <button onClick={onClick} className="save_button" type="submit">
             save

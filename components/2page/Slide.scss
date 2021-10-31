@@ -1,12 +1,11 @@
 .title {
   border-color: #3a3945;
   /*border:1px solid;*/
-  margin-top: 2em;
-  margin-bottom: 2em;
+  // margin-top: 2em;
   text-align: center;
 }
 .carousel {
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
 }
 .top5_carousel_container {
   position: relative;
@@ -61,40 +60,59 @@ button#btn_now {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
-  padding-top: 3.3rem;
+  // padding-top: 3.3rem;
+  padding-top: 7em;
   padding-bottom: 0.5rem;
+}
+@media screen and (min-width: 425px) {
+  .carousel-card-pager-zoomable {
+    padding-top: 5em;
+  }
+}
+@media screen and (min-width: 770px) {
+  .carousel-card-pager-zoomable {
+    padding-top: 3em;
+  }
+}
+@media screen and (min-width: 975px) {
+  .carousel-card-pager-zoomable {
+    padding-top: 1vw;
+  }
 }
 
 .carousel-card-mask {
   text-align: center;
 }
+.carousel_span{
+  word-wrap:break-word;
+}
 
 .leftback {
-  transform: translateX(-4vw) translateY(1vh) scale(0.73);
+  transform: translateX(0vw) translateY(1vh) scale(0.6);
   opacity: 0.2;
   z-index: -3;
   transition: 0.5s;
 }
 .rightback {
-  transform: translateX(39vw) translateY(1vh) scale(0.73);
+  transform: translateX(34vw) translateY(1vh) scale(0.6);
   opacity: 0.2;
   z-index: -3;
   transition: 0.5s;
 }
 .center {
-  transform: translateX(17vw) scale(1);
+  transform: translateX(17vw) scale(0.8);
   transition: 0.5s;
   z-index: -1;
 }
 .left {
-  transform: translateX(5vw) scale(0.83);
-  opacity: 0.75;
+  transform: translateX(8vw) scale(0.7);
+  opacity: 0.55;
   z-index: -2;
   transition: 0.5s;
 }
 .right {
-  transform: translateX(30vw) scale(0.83);
-  opacity: 0.75;
+  transform: translateX(26vw) scale(0.7);
+  opacity: 0.55;
   z-index: -2;
   transition: 0.5s;
 }
@@ -352,6 +370,7 @@ $black: #f08080;
   display: inline-block;
   margin-left: 1em;
 }
+
 @media screen and (max-width: 350px) {
   .category_box {
     margin: 0;

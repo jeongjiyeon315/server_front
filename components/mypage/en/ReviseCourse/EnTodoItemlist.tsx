@@ -1,21 +1,13 @@
-import axios from 'axios';
-import React, { FC, useEffect, useState } from 'react';
-import EnTodoItem from './EnTodoItem';
+import React, { FC, useState } from 'react';
 interface Props {
   todos: any;
   onRemove: any;
-  courseid: any;
-  coursename: any;
-  setCourese: any;
+  onClick:any;
+  ondeleteClick:any;
 }
 
 const EnTodoItemList: FC<Props> = (props: Props) => {
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    setText(props.coursename);
-  }, [props.courseid]);
-
+  const [text, setText] = useState('Course');
   var local = sessionStorage.getItem('memberid');
   const headers = {
     Accept: 'application/json',
@@ -27,42 +19,31 @@ const EnTodoItemList: FC<Props> = (props: Props) => {
     var memberid = 0;
   }
 
-  const onChange = (e: any) => {
-    setText(e.target.value);
-  };
-
-  const onClick = () => {
-    var name = text;
-    var myplaceList = props.todos;
-    if (myplaceList.length !== 0) {
-      axios
-        .put(
-          process.env.REACT_APP_DB_HOST + `/api/en/course/update/${memberid}/${props.courseid}`,
-          JSON.stringify({ name, myplaceList }),
-          { headers },
-        )
-        .then(() => {
-          alert('The course has been modified!');
-          axios
-            .get(process.env.REACT_APP_DB_HOST + `/api/en/course/findall/${memberid}`)
-            .then(async (response) => {
-              props.setCourese(response.data.data);
-            })
-            .catch((error) => {});
-        })
-        .catch((error) => {});
-    } else {
-      alert('Please put the location on the course!');
-    }
-  };
+  var imgsrc = './src/icon/x-mark.png';
 
   return (
     <>
-      <input onChange={onChange} value={text} />
-      <button onClick={onClick}>Fix it</button>
-      {props.todos.map((todo: any) => (
-        <EnTodoItem todos={todo} id={todo.id} onRemove={props.onRemove} />
-      ))}
+      <ul className="courselist_ul">
+        {props.todos.map((todo: any, i:number) => (
+          <>
+            { i===0 ?
+              <li className="courselist">
+                {todo.name}
+                <button className="xmark_button" onClick={() => props.onRemove(todo.id)}>
+                  <img className="xmarkimg" src={imgsrc} width="15" />
+                </button>
+              </li>
+              :
+              <li className="courselist">
+                &nbsp;➜ {todo.name}
+                <button className="xmark_button" onClick={() => props.onRemove(todo.id)}>
+                  <img className="xmarkimg" src={imgsrc} width="15" />
+                </button>
+              </li>
+            }
+          </>
+        ))}
+      </ul>
     </>
   );
 };

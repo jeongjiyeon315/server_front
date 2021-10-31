@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { FC, useState } from 'react';
 interface Props {
   todos: any;
@@ -7,17 +6,6 @@ interface Props {
 }
 
 const TodoItemList: FC<Props> = (props: Props) => {
-  const [text, setText] = useState('코스');
-  var local = sessionStorage.getItem('memberid');
-  const headers = {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  };
-  try {
-    var memberid = Number(local.split('')[1]);
-  } catch {
-    var memberid = 0;
-  }
 
   var imgsrc = './src/icon/x-mark.png';
 

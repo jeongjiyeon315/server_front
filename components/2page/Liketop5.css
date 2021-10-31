@@ -1,15 +1,9 @@
 .place_info {
   display: inline-block;
 }
-.liketop5_div{
+.liketop5_div {
   position: relative;
-  margin:15% 0;
-}
-@media screen and (max-width: 700px) {
-  .liketop5_div{
-    position: relative;
-    margin :0;
-  }
+  margin: 15% 0;
 }
 
 .ticon_li {
@@ -34,11 +28,9 @@
 .tcate_1 {
   line-height: 1.4em;
   font-weight: 400;
-  /*margin-top: 1.5em;*/
   padding: 0 0.5em;
   overflow: hidden;
   text-overflow: ellipsis;
-  /*display: -webkit-box;*/
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   word-break: break-all;
@@ -54,11 +46,29 @@
 }
 .tlikeplace {
   padding-right: 1em;
-  cursor:pointer;
+  cursor: pointer;
 }
-.tlikeplace:hover{
-  color:black;
+.tlikeplace:hover {
+  color: black;
   font-size: 1.2em;
-  transition:300ms ease all;
+  transition: 300ms ease all;
 }
 
+@media screen and (max-width: 700px) {
+  .liketop5_div {
+    position: relative;
+    margin: 0;
+  }
+  #top5 {
+    width: 16em !important;
+  }
+  .top5name_p {
+    font-size: 0.8em;
+  }
+  .top5phone_p {
+    font-size: 0.8em;
+  }
+  .top5add_p {
+    font-size: 0.6em;
+  }
+}

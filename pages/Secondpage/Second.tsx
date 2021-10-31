@@ -2,6 +2,7 @@ import React, { FC, memo, useEffect, useMemo, useState } from 'react';
 import Slide from '@components/2page/ko/Slide/Slide';
 import EnSlide from '@components/2page/en/Slide/EnSlide';
 import Layout from '@layouts/Layouts';
+import Newcategory from '@components/2page/ko/Newcategory/Newcategory';
 
 const Second = (props: any) => {
   var local = localStorage.getItem('language');
@@ -16,11 +17,7 @@ const Second = (props: any) => {
 
   return (
     <Layout>
-      {language[1] === 'KO' ? (
-        <Slide selectedcity={selectedcity} selectedcategory={selectedcategory} history={history} />
-      ) : (
-        <EnSlide selectedcity={selectedcity} selectedcategory={selectedcategory} history={history} />
-      )}
+      <Newcategory selectedcity={selectedcity} history={history}/>
     </Layout>
   );
 };

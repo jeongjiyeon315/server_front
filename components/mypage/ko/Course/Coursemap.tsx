@@ -49,8 +49,10 @@ export default function Coursemap() {
         var id = 1;
       } else if (el.category === '식당') {
         var id = 2;
-      } else {
+      } else if (el.category === '카페') {
         var id = 3;
+      } else {
+        var id = 0;
       }
       var imageSrc = `/src/icon/${id}.png`;
       const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
@@ -60,9 +62,27 @@ export default function Coursemap() {
       });
 
       marker.setMap(myplacemap);
+
       var infowindow = new kakao.maps.InfoWindow({
-        content: el.name,
+        content: `<span class="info-title">${el.name}</span>`,
       });
+
+      infowindow.open(myplacemap, marker);
+
+      var infoTitle = document.querySelectorAll('.info-title');
+
+      infoTitle.forEach(function (e: any) {
+        var w = e.offsetWidth;
+        var ml = w / 2;
+        e.parentElement.style.top = '82px';
+        e.parentElement.style.left = '50%';
+        e.parentElement.style.marginLeft = -ml + 'px';
+        e.parentElement.previousSibling.style.display = 'none';
+        e.parentElement.parentElement.style.border = '0px';
+        e.parentElement.parentElement.style.background = 'unset';
+      });
+
+      infowindow.close();
 
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(myplacemap, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
@@ -84,9 +104,6 @@ export default function Coursemap() {
   return (
     <>
       <div id="myplacemap" style={{ width: '50%', height: '50%' }}></div>
-
-      {/*//원래*/}
-      {/*<div id="myplacemap" style={{ width: '35vw', height: '35vw', margin:'auto' }}></div>*/}
     </>
   );
 }
