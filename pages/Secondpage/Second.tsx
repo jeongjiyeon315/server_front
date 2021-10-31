@@ -1,6 +1,4 @@
 import React, { FC, memo, useEffect, useMemo, useState } from 'react';
-import Slide from '@components/2page/ko/Slide/Slide';
-import EnSlide from '@components/2page/en/Slide/EnSlide';
 import Layout from '@layouts/Layouts';
 import Newcategory from '@components/2page/ko/Newcategory/Newcategory';
 
@@ -17,7 +15,7 @@ const Second = (props: any) => {
 
   return (
     <Layout>
-      <Newcategory selectedcity={selectedcity} history={history}/>
+      <Newcategory selectedcity={selectedcity} history={history} />
     </Layout>
   );
 };
