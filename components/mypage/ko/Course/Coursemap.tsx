@@ -52,7 +52,7 @@ export default function Coursemap() {
       } else if (el.category === '카페') {
         var id = 3;
       } else {
-        var id = 0;
+        var id = 11;
       }
       var imageSrc = `/src/icon/${id}.png`;
       const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);

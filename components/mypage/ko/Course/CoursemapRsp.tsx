@@ -46,7 +46,7 @@ export default function CoursemapRsp() {
       } else if (place.category === '카페') {
         var id = 3;
       } else {
-        var id = 0;
+        var id = 11;
       }
       var Src = `/src/icon/${id}.png`;
       var imageSrc = Src,

@@ -131,7 +131,7 @@ const Toggle = () => {
   const gwangjuindex = useRef(0);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_DB_HOST+'/api/en/province/findall').then((response) => {
+    axios.get(process.env.REACT_APP_DB_HOST + '/api/en/province/findall').then((response) => {
       for (var i = 0; i < response.data.data.length; i++) {
         setIndex(i);
         if (i === 0) {
@@ -965,16 +965,13 @@ const Toggle = () => {
   return (
     <>
       <img src={map} className="map" alt="map" />
-      <h4 style={{marginLeft:'2em'}}>Where do you want to go?</h4>
+      <h4 style={{ marginLeft: '6em' }}>Where do you want to go?</h4>
 
       <div className="district_toggle">
         <div className="nextbutton">
-          {selectedcity !== '없음'  ? (
-            <button className="gotosecondbtn" id="citycatedone" >
-              <Link
-                to={`/${city_engtokor[selectedcity]}`}
-                style={{ textDecoration: 'none', color: 'rgb(92, 88, 88)' }}
-              >
+          {selectedcity !== '없음' ? (
+            <button className="gotosecondbtn" id="citycatedone">
+              <Link to={`/${city_engtokor[selectedcity]}`} style={{ textDecoration: 'none', color: 'rgb(92, 88, 88)' }}>
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
                 </span>
@@ -991,27 +988,24 @@ const Toggle = () => {
           )}
         </div>
 
-      <EnContainer
-        setGyeongitoggle={setGyeongitoggle}
-        setGangwontoggle={setGangwontoggle}
-        setChungnamtoggle={setChungnamtoggle}
-        setChungbuktoggle={setChungbuktoggle}
-        setGyeonnamtoggle={setGyeonnamtoggle}
-        setGyeonbuktoggle={setGyeonbuktoggle}
-        setJeonbuktoggle={setJeonbuktoggle}
-        setJeonnamtoggle={setJeonnamtoggle}
-        setIncheontoggle={setIncheontoggle}
-        setDaejeontoggle={setDaejeontoggle}
-        setGwangjutoggle={setGwangjutoggle}
-        setDaegutoggle={setDaegutoggle}
-        setUlsantoggle={setUlsantoggle}
-        setBusantoggle={setBusantoggle}
-        setMap={setMap}
-        setSelectedcity={setSelectedcity}
-      />
-
-
-
+        <EnContainer
+          setGyeongitoggle={setGyeongitoggle}
+          setGangwontoggle={setGangwontoggle}
+          setChungnamtoggle={setChungnamtoggle}
+          setChungbuktoggle={setChungbuktoggle}
+          setGyeonnamtoggle={setGyeonnamtoggle}
+          setGyeonbuktoggle={setGyeonbuktoggle}
+          setJeonbuktoggle={setJeonbuktoggle}
+          setJeonnamtoggle={setJeonnamtoggle}
+          setIncheontoggle={setIncheontoggle}
+          setDaejeontoggle={setDaejeontoggle}
+          setGwangjutoggle={setGwangjutoggle}
+          setDaegutoggle={setDaegutoggle}
+          setUlsantoggle={setUlsantoggle}
+          setBusantoggle={setBusantoggle}
+          setMap={setMap}
+          setSelectedcity={setSelectedcity}
+        />
 
         <label
           className="district"
