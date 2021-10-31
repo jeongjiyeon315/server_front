@@ -28,8 +28,17 @@ const Coursemap: FC<Props> = (props: Props) => {
     axios
       .get(process.env.REACT_APP_DB_HOST + `/api/myplacecourse/findall/${props.courseid}`)
       .then((response) => {
-        setPlace(response.data.data);
-        setName(response.data.data[0].courseName);
+        if (response.data.data.length !== 0) {
+          setPlace(response.data.data);
+          setName(response.data.data[0].courseName);
+        } else {
+          alert('코스에 담아둔 장소가 없습니다! 코스를 삭제합니다!');
+          axios
+            .delete(process.env.REACT_APP_DB_HOST + `/api/course/delete/${props.courseid}`)
+            .then((response) => {})
+            .catch((error) => {});
+        }
+        location.reload();
       })
       .catch((error) => {});
   }, [props.courseid]);
