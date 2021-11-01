@@ -124,7 +124,7 @@ const EnSlide: FC<Props> = (props: Props) => {
       })
       .catch((error) => {});
     axios
-      .get(`/api/en/station/${dic[props.selectedcity]}`)
+      .get(process.env.REACT_APP_DB_HOST + `/api/en/station/${dic[props.selectedcity]}`)
       .then((response) => {
         setStation(response.data.data);
       })
