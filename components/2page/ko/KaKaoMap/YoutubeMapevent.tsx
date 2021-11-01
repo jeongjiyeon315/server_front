@@ -119,10 +119,10 @@ const YoutubeMapRsp: FC<Props> = ({ children, videoid, history }) => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <div id="youtubemap" style={{ width: '50%', height: '40%' }}></div>
-      <div className="likevlog_div">
+      <div id="youtubemap" style={{ width: '50%', height: '40%', display: 'inline-block' }}></div>
+      <span className="likevlog_span" style={{ position: 'absolute', width: '45%' }}>
         <LikeVlog vlogplacename={name} vlogpid={videoid} history={history} vlogplaceid={vlogid} placeurl={placeurl} />
-      </div>
+      </span>
     </div>
   );
 };
