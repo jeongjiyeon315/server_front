@@ -15,7 +15,7 @@ const ViewMain = () => {
   const [exist, setExsist] = useState(false);
   useEffect(() => {
     axios
-      .get(`/api/course/findall/${memberid}`)
+      .get(process.env.REACT_DB_HOST + `/api/course/findall/${memberid}`)
       .then(async (response) => {
         if (response.data.data.length !== 0) {
           setExsist(true);

@@ -16,70 +16,44 @@ interface Props {
 }
 
 const Top5Mapevent: FC<Props> = (props: Props) => {
-  const latt = useRef(0);
-  const long = useRef(0);
+  const x = useRef(0);
+  const y = useRef(0);
   const kakao = (window as any).kakao;
   useEffect(() => {
     props.top5data !== [] && mapscript();
   }, [props.top5data]);
 
   const mapscript = () => {
-    props.top5data.forEach((el: any) => {
-      latt.current += el.location_y;
-      long.current += el.location_x;
-    });
-    props.stationlist.forEach((el: any) => {
-      latt.current += el.location_y;
-      long.current += el.location_x;
-    });
     let container = document.getElementById('entop5');
-    let length = props.stationlist.length + props.top5data.length;
     let options = {
-      center: new kakao.maps.LatLng(latt.current / length, long.current / length),
+      center: new kakao.maps.LatLng(37.55699327194725, 126.97267350572926),
       level: 10,
     };
-    const top5map = new kakao.maps.Map(container, options);
-    props.stationlist.forEach((el: any) => {
-      var imageSrc = '/src/icon/0.png';
-      var imageSize = new kakao.maps.Size(30, 30),
-        imageOption = { offset: new kakao.maps.Point(27, 69) };
-      const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-      const marker = new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(el.location_y, el.location_x),
-        image: markerImage,
-      });
+    var top5map = new kakao.maps.Map(container, options);
+
+    var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+    function displayMarker(place: any) {
+      var imageSrc = props.imageSrc,
+        imageSize = new kakao.maps.Size(36, 37),
+        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
+        marker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(place.location_y, place.location_x),
+          image: markerImage,
+        });
 
       marker.setMap(top5map);
-
-      var infowindow = new kakao.maps.InfoWindow({
-        content: `<span class="info-title">${el.name}</span>`,
-      });
-      infowindow.open(top5map, marker);
-      var infoTitle = document.querySelectorAll('.info-title');
-      infoTitle.forEach(function (e: any) {
-        var w = e.offsetWidth + 10;
-        var ml = w / 2;
-        e.parentElement.style.top = '82px';
-        e.parentElement.style.left = '50%';
-        e.parentElement.style.marginLeft = -ml + 'px';
-        e.parentElement.previousSibling.style.display = 'none';
-        e.parentElement.parentElement.style.border = '0px';
-        e.parentElement.parentElement.style.background = 'unset';
-      });
-      infowindow.close();
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(top5map, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
       kakao.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(`<span class="info-title">${el.name}</span>`);
+        infowindow.setContent(`<span class="info-title">${place.name}</span>`);
         infowindow.open(top5map, marker);
         var infoTitle = document.querySelectorAll('.info-title');
         infoTitle.forEach(function (e: any) {
-          var w = e.offsetWidth + 10;
+          var w = e.offsetWidth;
           var ml = w / 2;
+          e.parentElement.style.width = w;
           e.parentElement.style.top = '62px';
           e.parentElement.style.left = '50%';
           e.parentElement.style.marginLeft = -ml + 'px';
-          e.parentElement.style.width = w + 'px';
           e.parentElement.previousSibling.style.display = 'none';
           e.parentElement.parentElement.style.border = '0px';
           e.parentElement.parentElement.style.background = 'unset';
@@ -87,47 +61,28 @@ const Top5Mapevent: FC<Props> = (props: Props) => {
         infowindow.close();
         infowindow.open(top5map, marker);
       });
-    });
-    props.top5data.forEach((el: any) => {
-      var imageSize = new kakao.maps.Size(30, 30),
-        imageOption = { offset: new kakao.maps.Point(27, 69) };
-      const markerImage = new kakao.maps.MarkerImage(props.imageSrc, imageSize, imageOption);
-      const marker = new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(el.location_y, el.location_x),
-        image: markerImage,
-      });
+    }
+    function displayMarker_s(place: any) {
+      var imageSrc = '/src/icon/0.png',
+        imageSize = new kakao.maps.Size(36, 37),
+        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
+        marker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(place.location_y, place.location_x),
+          image: markerImage,
+        });
 
       marker.setMap(top5map);
-      var infowindow = new kakao.maps.InfoWindow({
-        content: `<span class="info-title">${el.name}</span>`,
-      });
-      infowindow.open(top5map, marker);
-      var infoTitle = document.querySelectorAll('.info-title');
-      infoTitle.forEach(function (e: any) {
-        var w = e.offsetWidth + 10;
-        var ml = w / 2;
-        e.parentElement.style.top = '82px';
-        e.parentElement.style.left = '50%';
-        e.parentElement.style.marginLeft = -ml + 'px';
-        e.parentElement.style.width = w + 'px';
-        e.parentElement.previousSibling.style.display = 'none';
-        e.parentElement.parentElement.style.border = '0px';
-        e.parentElement.parentElement.style.background = 'unset';
-      });
-      infowindow.close();
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(top5map, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
       kakao.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(`<span class="info-title">${el.name}</span>`);
+        infowindow.setContent(`<span class="info-title">${place.name}</span>`);
         infowindow.open(top5map, marker);
         var infoTitle = document.querySelectorAll('.info-title');
         infoTitle.forEach(function (e: any) {
-          var w = e.offsetWidth + 10;
+          var w = e.offsetWidth;
           var ml = w / 2;
           e.parentElement.style.top = '62px';
           e.parentElement.style.left = '50%';
           e.parentElement.style.marginLeft = -ml + 'px';
-          e.parentElement.style.width = w + 'px';
+          e.parentElement.style.width = w;
           e.parentElement.previousSibling.style.display = 'none';
           e.parentElement.parentElement.style.border = '0px';
           e.parentElement.parentElement.style.background = 'unset';
@@ -135,8 +90,7 @@ const Top5Mapevent: FC<Props> = (props: Props) => {
         infowindow.close();
         infowindow.open(top5map, marker);
       });
-    });
-
+    }
     function makeOverListener(map: any, marker: any, infowindow: { open: (arg0: any, arg1: any) => void }) {
       return function () {
         infowindow.open(map, marker);
@@ -148,6 +102,32 @@ const Top5Mapevent: FC<Props> = (props: Props) => {
         infowindow.close();
       };
     }
+    for (let i = 0; i < props.stationlist.length; i++) {
+      displayMarker_s(props.stationlist[i]);
+    }
+
+    for (let j = 0; j < props.top5data.length; j++) {
+      displayMarker(props.top5data[j]);
+    }
+
+    x.current = 0;
+    y.current = 0;
+
+    for (var i = 0; i < props.stationlist.length; i++) {
+      x.current += props.stationlist[i].location_x;
+      y.current += props.stationlist[i].location_y;
+    }
+
+    for (var j = 0; j < props.top5data.length; j++) {
+      x.current += props.top5data[j].location_x;
+      y.current += props.top5data[j].location_y;
+    }
+
+    var number = props.stationlist.length + props.top5data.length;
+
+    var Position = new kakao.maps.LatLng(y.current / number, x.current / number);
+
+    top5map.setCenter(Position);
   };
 
   return (
