@@ -1,0 +1,57 @@
+.displaycourse {
+  text-align: center;
+}
+
+.btncategory {
+  text-align: center;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgb(159 162 177 / 80%);
+  cursor: pointer;
+  height: 3.5em;
+}
+
+button.newcategory {
+  color: #83818c;
+  padding: 0px 5px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  position: relative;
+  margin: 0px 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.newcategory:hover {
+  color: #f08080;
+}
+
+.newcategory_clicked {
+  color: #f08080;
+  margin: 0 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .newcategory {
+    font-size: 10px;
+    padding: 0 !important;
+    margin: 0;
+  }
+  .newcategory_clicked {
+    font-size: 10px;
+    padding: 0 !important;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
