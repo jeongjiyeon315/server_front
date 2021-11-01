@@ -13,7 +13,7 @@ axios.defaults.withCredentials = true;
 axios.defaults.baseURL =
   process.env.NODE_ENV === 'production'
     ? 'http://uspot.cf.s3-website.ap-northeast-2.amazonaws.com/'
-    : 'http://localhost:80';
+    : 'http://localhost:8081';
 console.log('env', process.env.NODE_ENV === 'production');
 
 render(

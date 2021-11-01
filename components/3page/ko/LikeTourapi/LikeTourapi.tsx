@@ -41,15 +41,11 @@ const LikeTourapi: FC<Props> = (props: Props) => {
     ggcategory = '관광명소';
   }
   var len = 0;
-  const headers = {
-    Origin: 'http://uspot.site',
-  };
 
   useEffect(() => {
     axios
       .get(
         `http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?serviceKey=${api}&numOfRows=${number}&pageNo=${pnumber}&MobileOS=ETC&MobileApp=AppTest&arrange=${props.arrange}&contentTypeId=${props.type}&mapX=${props.mapx}&mapY=${props.mapy}&radius=${props.distance}&listYN=Y&_type=json`,
-        { headers },
       )
       .then((response) => {
         if (response.data.response.body.items === '') {
