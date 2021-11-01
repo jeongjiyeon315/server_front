@@ -89,7 +89,7 @@ const config: Configuration = {
   },
   devServer: {
     historyApiFallback: true,
-    port: 8090,
+    port: 80,
     publicPath: '/dist/',
     proxy: {
       '/api/': {

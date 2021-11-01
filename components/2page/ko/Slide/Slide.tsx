@@ -98,7 +98,7 @@ const Slide: FC<Props> = (props: Props) => {
       })
       .catch((error) => {});
     axios
-      .get(`/api/station/${dic[props.selectedcity]}`)
+      .get(process.env.REACT_APP_DB_HOST + `/api/station/${dic[props.selectedcity]}`)
       .then((response) => {
         setStation(response.data.data);
       })
