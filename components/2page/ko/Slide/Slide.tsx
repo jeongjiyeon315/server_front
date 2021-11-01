@@ -98,7 +98,7 @@ const Slide: FC<Props> = (props: Props) => {
       })
       .catch((error) => {});
     axios
-      .get(process.env.REACT_APP_DB_HOST + `/api/station/${dic[props.selectedcity]}`)
+      .get(`/api/station/${dic[props.selectedcity]}`)
       .then((response) => {
         setStation(response.data.data);
       })
@@ -107,7 +107,42 @@ const Slide: FC<Props> = (props: Props) => {
 
   var selectedplace;
   selectedplace = top5name[btn_pic - 1];
-
+  function next() {
+    if (btn_pic === 1) {
+      setStart(4);
+    } else if (btn_pic === 2) {
+      setStart(3);
+    } else if (btn_pic === 3) {
+      setStart(2);
+    } else if (btn_pic === 4) {
+      setStart(1);
+    } else if (btn_pic === 5) {
+      setStart(0);
+    }
+    if (btn_pic === 4) {
+      setBtn_pic(5);
+    } else {
+      setBtn_pic((btn_pic + 1) % 5);
+    }
+  }
+  function left() {
+    if (start === 1) {
+      setStart(2);
+    } else if (start === 2) {
+      setStart(3);
+    } else if (start === 3) {
+      setStart(4);
+    } else if (start === 4) {
+      setStart(0);
+    } else if (start === 0) {
+      setStart(1);
+    }
+    if (btn_pic === 1) {
+      setBtn_pic(5);
+    } else {
+      setBtn_pic((btn_pic - 1) % 5);
+    }
+  }
   return (
     <>
       <div className="title">
@@ -118,6 +153,15 @@ const Slide: FC<Props> = (props: Props) => {
       <div className="carousel">
         <div className="carousel_card">
           <div className="top5_carousel_container">
+            <button className="왼쪽으로" onClick={left}>
+              {' '}
+              (({' '}
+            </button>
+            <button className="오른쪽으로" onClick={next}>
+              {' '}
+              )){' '}
+            </button>
+
             <div className={imgloc[start]}>
               <div className="carousel-card-mask">
                 <img src={pic1} alt="pic" className="carousel-img" />
@@ -269,17 +313,6 @@ const Slide: FC<Props> = (props: Props) => {
           stationlist={station}
         />
       </div>
-      {/*<div className="top5mapevent_responsive" style={{ position: 'relative', width: '100%' }}>*/}
-      {/*  <Top5MapeventResponsive*/}
-      {/*    top5data={top5data}*/}
-      {/*    imageSrc={imageSrc}*/}
-      {/*    top5name={top5name}*/}
-      {/*    top5placeid={top5placeid}*/}
-      {/*    placeurl={placeurl}*/}
-      {/*    history={props.history}*/}
-      {/*    stationlist={station}*/}
-      {/*  />*/}
-      {/*</div>*/}
 
       <Thumbnail
         selectedcity={props.selectedcity}
