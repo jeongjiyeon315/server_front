@@ -35,10 +35,9 @@ const TodoItemList: FC<Props> = (props: Props) => {
           JSON.stringify({ name, myplaceList }),
           { headers },
         )
-        .then(() => {
-          alert('코스가 수정되었습니다!');
-        })
+        .then(() => {})
         .catch((error) => {});
+      alert('코스가 수정되었습니다!');
     } else {
       alert('코스에 장소를 담아주세요!');
     }

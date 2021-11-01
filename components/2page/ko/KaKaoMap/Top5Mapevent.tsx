@@ -69,6 +69,24 @@ const Top5Mapevent: FC<Props> = (props: Props) => {
       infowindow.close();
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(top5map, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+      kakao.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(`<span class="info-title">${el.name}</span>`);
+        infowindow.open(top5map, marker);
+        var infoTitle = document.querySelectorAll('.info-title');
+        infoTitle.forEach(function (e: any) {
+          var w = e.offsetWidth + 10;
+          var ml = w / 2;
+          e.parentElement.style.top = '62px';
+          e.parentElement.style.left = '50%';
+          e.parentElement.style.marginLeft = -ml + 'px';
+          e.parentElement.style.width = w + 'px';
+          e.parentElement.previousSibling.style.display = 'none';
+          e.parentElement.parentElement.style.border = '0px';
+          e.parentElement.parentElement.style.background = 'unset';
+        });
+        infowindow.close();
+        infowindow.open(top5map, marker);
+      });
     });
     props.top5data.forEach((el: any) => {
       var imageSize = new kakao.maps.Size(30, 30),
@@ -99,6 +117,24 @@ const Top5Mapevent: FC<Props> = (props: Props) => {
       infowindow.close();
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(top5map, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+      kakao.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(`<span class="info-title">${el.name}</span>`);
+        infowindow.open(top5map, marker);
+        var infoTitle = document.querySelectorAll('.info-title');
+        infoTitle.forEach(function (e: any) {
+          var w = e.offsetWidth + 10;
+          var ml = w / 2;
+          e.parentElement.style.top = '62px';
+          e.parentElement.style.left = '50%';
+          e.parentElement.style.marginLeft = -ml + 'px';
+          e.parentElement.style.width = w + 'px';
+          e.parentElement.previousSibling.style.display = 'none';
+          e.parentElement.parentElement.style.border = '0px';
+          e.parentElement.parentElement.style.background = 'unset';
+        });
+        infowindow.close();
+        infowindow.open(top5map, marker);
+      });
     });
 
     function makeOverListener(map: any, marker: any, infowindow: { open: (arg0: any, arg1: any) => void }) {

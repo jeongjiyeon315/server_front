@@ -93,6 +93,24 @@ const YoutubeMapevent: FC<Props> = ({ children, videoid, history }) => {
       infowindow.close();
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(youtubemap, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+      kakao.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(`<span class="info-title">${place[i].name}</span>`);
+        infowindow.open(youtubemap, marker);
+        var infoTitle = document.querySelectorAll('.info-title');
+        infoTitle.forEach(function (e: any) {
+          var w = e.offsetWidth + 10;
+          var ml = w / 2;
+          e.parentElement.style.top = '62px';
+          e.parentElement.style.left = '50%';
+          e.parentElement.style.marginLeft = -ml + 'px';
+          e.parentElement.style.width = w + 'px';
+          e.parentElement.previousSibling.style.display = 'none';
+          e.parentElement.parentElement.style.border = '0px';
+          e.parentElement.parentElement.style.background = 'unset';
+        });
+        infowindow.close();
+        infowindow.open(youtubemap, marker);
+      });
     }
   };
 
