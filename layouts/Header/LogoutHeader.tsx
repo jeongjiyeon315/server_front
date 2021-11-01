@@ -10,13 +10,11 @@ const LogoutHeader = () => {
   const onClickKo = () => {
     localStorage.removeItem('language');
     localStorage.setItem('language', JSON.stringify('KO'));
-    console.log(localStorage.getItem('language'));
     location.reload();
   };
   const onClickEn = () => {
     localStorage.removeItem('language');
     localStorage.setItem('language', JSON.stringify('EN'));
-    console.log(localStorage.getItem('language'));
     location.reload();
   };
   var local = localStorage.getItem('language');

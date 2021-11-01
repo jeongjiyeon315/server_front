@@ -9,12 +9,9 @@ import { cache, mutate } from 'swr';
 
 import App from './layouts/App';
 
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL =
-  process.env.NODE_ENV === 'production'
-    ? 'http://uspot.cf.s3-website.ap-northeast-2.amazonaws.com/'
-    : 'http://localhost:8081';
-console.log('env', process.env.NODE_ENV === 'production');
+// axios.defaults.withCredentials = true;
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://uspot.site' : 'http://localhost:8090';
+// console.log('env', process.env.NODE_ENV === 'production');
 
 render(
   <BrowserRouter>

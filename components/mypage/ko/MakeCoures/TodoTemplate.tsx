@@ -42,7 +42,6 @@ const TodoTemplate: FC<Props> = (props: Props) => {
         setTodos((prev: any) => [...prev, res.data.data]);
         setIndex((prev: any) => [...prev, res.data.data.id]);
         setId(res.data.data.id);
-        console.log(res.data.data);
       })
       .catch((error) => {});
   }, [props.start]);
