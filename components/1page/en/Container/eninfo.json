@@ -80,11 +80,6 @@
     "id" : 12
   },
   {
-    "name": "Ulsan",
-    "cityLink": "src/city/울산광역시.png",
-    "id" : 13
-  },
-  {
     "name": "Gwangju",
     "cityLink": "src/city/광주광역시.png",
     "id" : 14

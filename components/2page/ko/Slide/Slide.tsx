@@ -4,7 +4,6 @@ import '../../Slide.scss';
 import Thumbnail from '@components/2page/ko/Thumbnail/Thumbnail';
 import axios from 'axios';
 import Top5Mapevent from '@components/2page/ko/KaKaoMap/Top5Mapevent';
-import Top5MapeventResponsive from '@components/2page/ko/KaKaoMap/Top5MapeventResponsive';
 import { History, LocationState } from 'history';
 
 interface Props {
@@ -41,25 +40,44 @@ const Slide: FC<Props> = (props: Props) => {
   const [station, setStation] = useState([] as any);
 
   var dic: { [key: string]: number } = {
-    가평군: 1,
-    고양시: 9,
-    수원시: 11,
-    강릉시: 15,
-    춘천시: 16,
-    천안시: 33,
-    단양군: 36,
-    청주시: 37,
-    순천시: 45,
-    전주시: 57,
-    하동군: 65,
-    경주시: 73,
-    안동시: 85,
-    인천: 87,
-    대전: 88,
-    대구: 89,
-    부산: 90,
-    울산: 91,
-    광주: 92,
+    gapyeong: 1,
+    goyaong: 9,
+    suwon: 11,
+    gangneung: 15,
+    chuncheon: 16,
+    cheonan: 33,
+    danyang: 36,
+    cheongju: 37,
+    suncheon: 45,
+    jeonju: 57,
+    hadong: 65,
+    gyeongju: 73,
+    andong: 85,
+    incheon: 87,
+    daejeon: 88,
+    daegu: 89,
+    busan: 90,
+    gwangju: 92,
+  };
+  var dic_name: { [key: string]: string } = {
+    gapyeong: '가평군',
+    goyaong: '고양시',
+    suwon: '수원시',
+    gangneung: '강릉시',
+    chuncheon: '춘천시',
+    cheonan: '천안시',
+    danyang: '단양군',
+    cheongju: '청주시',
+    suncheon: '순천시',
+    jeonju: '전주시',
+    hadong: '하동군',
+    gyeongju: '경주시',
+    andong: '안동시',
+    incheon: '인천',
+    daejeon: '대전',
+    daegu: '대구',
+    busan: '부산',
+    gwangju: '광주',
   };
   var dic_category: { [key: string]: number } = {
     관광명소: 1,
@@ -143,11 +161,17 @@ const Slide: FC<Props> = (props: Props) => {
       setBtn_pic((btn_pic - 1) % 5);
     }
   }
+  var dic_router: { [key: string]: string } = {
+    관광명소: 'attraction',
+    음식점: 'restaurant',
+    카페: 'cafe',
+  };
+
   return (
     <>
       <div className="title">
         <h2 style={{ marginBottom: '0px', marginTop: '0.8em' }}>
-          {props.selectedcity}의 {props.selectedcategory} TOP5{' '}
+          {dic_name[props.selectedcity]}의 {props.selectedcategory} TOP5{' '}
         </h2>
       </div>
       <div className="carousel">
@@ -283,7 +307,7 @@ const Slide: FC<Props> = (props: Props) => {
         <button className="gotothirdbutton">
           <Link
             to={{
-              pathname: `/${props.selectedcity}/${props.selectedcategory}/more`,
+              pathname: `/${props.selectedcity}/${dic_router[props.selectedcategory]}/more`,
               state: {
                 selectedplace: top5name[btn_pic - 1],
                 mapx: mapx[btn_pic - 1],
@@ -313,7 +337,6 @@ const Slide: FC<Props> = (props: Props) => {
           stationlist={station}
         />
       </div>
-
       <Thumbnail
         selectedcity={props.selectedcity}
         selectedcategory={props.selectedcategory}

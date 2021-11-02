@@ -3,7 +3,6 @@ import axios from 'axios';
 import '@components/2page/Thumbnail.scss';
 import YoutubeMapevent from '@components/2page/ko/KaKaoMap/YoutubeMapevent';
 import { History, LocationState } from 'history';
-import YoutubeMapRsp from '../KaKaoMap/YoutubeMapRsp';
 
 interface Props {
   selectedcity: any;
@@ -18,25 +17,24 @@ const Thumbnail: FC<Props> = ({ children, selectedcity, selectedcategory, btn_pi
   const [map, setMap] = useState(false);
   const [id, setId] = useState(null);
   var dic: { [key: string]: number } = {
-    가평군: 1,
-    고양시: 9,
-    수원시: 11,
-    강릉시: 15,
-    춘천시: 16,
-    천안시: 33,
-    단양군: 36,
-    청주시: 37,
-    순천시: 45,
-    전주시: 57,
-    하동군: 65,
-    경주시: 73,
-    안동시: 85,
-    인천: 87,
-    대전: 88,
-    대구: 89,
-    부산: 90,
-    울산: 91,
-    광주: 92,
+    gapyeong: 1,
+    goyaong: 9,
+    suwon: 11,
+    gangneung: 15,
+    chuncheon: 16,
+    cheonan: 33,
+    danyang: 36,
+    cheongju: 37,
+    suncheon: 45,
+    jeonju: 57,
+    hadong: 65,
+    gyeongju: 73,
+    andong: 85,
+    incheon: 87,
+    daejeon: 88,
+    daegu: 89,
+    busan: 90,
+    gwangju: 92,
   };
   var dic_category: { [key: string]: number } = {
     관광명소: 1,
@@ -99,9 +97,6 @@ const Thumbnail: FC<Props> = ({ children, selectedcity, selectedcategory, btn_pi
           <div className="youtubemapevent" style={{ position: 'relative', width: '100%' }}>
             <YoutubeMapevent videoid={id} history={history} />
           </div>
-          {/*<div className="youtubemapevent_response" style={{ position: 'relative', width: '100%' }}>*/}
-          {/*  <YoutubeMapRsp videoid={id} history={history} />*/}
-          {/*</div>*/}
         </>
       )}
     </>

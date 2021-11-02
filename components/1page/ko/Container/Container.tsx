@@ -22,7 +22,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 2) {
       props.setMap(value.cityLink);
@@ -39,7 +38,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 3) {
       props.setMap(value.cityLink);
@@ -56,7 +54,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 4) {
       props.setMap(value.cityLink);
@@ -73,7 +70,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 5) {
       props.setMap(value.cityLink);
@@ -90,7 +86,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 6) {
       props.setMap(value.cityLink);
@@ -107,7 +102,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 7) {
       props.setMap(value.cityLink);
@@ -124,7 +118,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(true);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 8) {
       props.setMap(value.cityLink);
@@ -141,7 +134,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(true);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 9) {
       props.setMap(value.cityLink);
@@ -158,7 +150,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 10) {
       props.setMap(value.cityLink);
@@ -175,7 +166,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 11) {
       props.setMap(value.cityLink);
@@ -192,7 +182,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(true);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     } else if (value.id === 12) {
       props.setMap(value.cityLink);
@@ -209,25 +198,7 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(true);
-    } else if (value.id === 13) {
-      props.setMap(value.cityLink);
-      props.setSelectedcity(value.name);
-      props.setGyeongitoggle(false);
-      props.setGangwontoggle(false);
-      props.setIncheontoggle(false);
-      props.setChungbuktoggle(false);
-      props.setChungnamtoggle(false);
-      props.setDaejeontoggle(false);
-      props.setJeonbuktoggle(false);
-      props.setJeonnamtoggle(false);
-      props.setGwangjutoggle(false);
-      props.setGyeonbuktoggle(false);
-      props.setGyeonnamtoggle(false);
-      props.setDaegutoggle(false);
-      props.setUlsantoggle(true);
-      props.setBusantoggle(false);
     } else {
       props.setMap(value.cityLink);
       props.setSelectedcity(value.name);
@@ -243,7 +214,6 @@ const Container = (props: any) => {
       props.setGyeonbuktoggle(false);
       props.setGyeonnamtoggle(false);
       props.setDaegutoggle(false);
-      props.setUlsantoggle(false);
       props.setBusantoggle(false);
     }
   };
@@ -256,7 +226,7 @@ const Container = (props: any) => {
         onChange={(event) => {
           setSearchTerm(event.target.value);
         }}
-        style={{width:'15em'}}
+        style={{ width: '15em' }}
       />
       <div className="container">
         {JSONDATA.filter((val: any) => {

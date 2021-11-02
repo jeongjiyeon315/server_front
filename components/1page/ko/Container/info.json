@@ -85,11 +85,6 @@
     "id" : 12
   },
   {
-    "name": "울산",
-    "cityLink": "src/city/울산광역시.png",
-    "id" : 13
-  },
-  {
     "name": "광주",
     "cityLink": "src/city/광주광역시.png",
     "id" : 14
