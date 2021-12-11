@@ -14,7 +14,7 @@ const Dotenv = require('dotenv-webpack');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const config: Configuration = {
-  name: 'sleact',
+  name: 'uspot',
   mode: isDevelopment ? 'development' : 'production',
   devtool: !isDevelopment ? 'hidden-source-map' : 'eval',
   resolve: {
@@ -93,7 +93,7 @@ const config: Configuration = {
     publicPath: '/dist/',
     proxy: {
       '/api/': {
-        target: 'http://13.125.198.11',
+        target: 'http://54.180.157.184:8080',
         changeOrigin: true,
         ws: true,
       },
